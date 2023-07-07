@@ -9,7 +9,7 @@ The thesis regards the practical development works started with the curricular i
 Comands to run the thesis:
 
 * pdflatex main
-* makeglossaries main ➡️ builds the glossary
+* makeglossaries main  ➡️  builds the glossary
 * pdflatex main
 
 Umberto Pasinetti - 873604 folder: contains two pdf versions of the thesis (printing and not-printing one), and the presentation/speech pdf
