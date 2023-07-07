@@ -1,6 +1,6 @@
 # Master thesis
 
-### Title: Implementation of User Interface components for the web app OMNIA
+### Title: Implementation of User Interface components for the web app OMNIA
 My final work of the Theory and Technology of Communication master's degree course
 
 The thesis regards the practical development works started with the curricular internship and continued thanks to a second extra-curricular one at Link-Up
