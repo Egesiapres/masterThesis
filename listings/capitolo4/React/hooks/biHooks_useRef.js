@@ -1,0 +1,1 @@
+const refExample = useRef('example');

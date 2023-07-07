@@ -1,0 +1,112 @@
+\selectlanguage{italian}
+
+\chapter{Soluzioni organizzative}
+L'obiettivo che il terzo capitolo si pone è quello di spiegare come il coordinamento con il team di sviluppo sia avvenuto. Per farlo va ad analizzare le soluzioni adottate a livello organizzativo, ovvero tutti quegli strumenti che hanno permesso la pianificazione delle operazioni necessarie alla realizzazione del progetto nel corso dei mesi. A tal fine, il capitolo parte fornendo una panoramica generale del concetto di \textit{smart working} e di metodologia agile, per poi proseguire con un'analisi più dettagliata del \textit{framework Scrum}, un particolare approccio alla metodologia agile stessa. 
+
+\section{\textit{Smart working}}
+\label{sec:Smart working}
+Il progetto è stato realizzato quasi interamente attraverso il lavoro agile, da remoto, al quale si è soliti riferirsi grazie alla più nota espressione, ormai entrata a far parte del linguaggio comune, \textit{“smart working”}.\\
+Questo è definito come:
+\begin{quote}
+una «[...] modalità di esecuzione  del rapporto di lavoro subordinato  [...] con forme di organizzazione per fasi, cicli e  obiettivi e senza precisi vincoli di orario  o  di  luogo  di  lavoro,  con  il
+possibile  utilizzo  di  strumenti  tecnologici  per  lo  svolgimento dell'attività lavorativa. La prestazione lavorativa viene  eseguita, in parte all'interno di locali aziendali e in parte all'esterno senza una  postazione  fissa,  entro  i  soli  limiti  di  durata   massima
+dell'orario di lavoro  giornaliero  e  settimanale [...]»\cite{Stato_SmartWorking}.
+\end{quote}
+
+La forma di telelavoro in questione è stata adottata per la prima volta in modo stabile a causa dell'emergenza sanitaria dovuta al COVID-19, nel 2020. Infatti, poiché la pandemia ha costretto più volte a severi \textit{lockdown}, è stato necessario trovare una contromisura che permettesse di continuare a svolgere tutte le operazioni di \textit{routine} lavorativa da remoto.\\
+In virtù della straordinaria bontà di alcuni suoi aspetti positivi, come, ad esempio, «[...] la possibilità di organizzare e programmare meglio il lavoro; [...] la maggiore disponibilità di tempo per sé e per la propria famiglia; [...] il lavorare in un clima di maggiore fiducia e responsabilizzazione [...]» e «[...] un modo di lavorare più stimolante»\cite{DeMasi_SmartWorkingRivoluzioneLavoroIntelligente}, lo \textit{smart working} è poi permasto anche una volta terminato il periodo critico della pandemia. Ad ora, costituisce una soluzione importante nella vita di molte persone, e uno standard per numerose realtà che operano nel settore \acrfull{it}
+
+Seppur il lavoro da remoto abbia rappresentato la soluzione adottata preponderantemente per la pianificazione delle attività e la coordinazione con il team di sviluppo con il quale è stato realizzato il progetto, va menzionata la presenza di un unico appuntamento settimanale in presenza, quello del martedì.
+
+\section{Metodologia agile}
+\label{sec:Metodologia agile}
+L'attività (svolta in \textit{smart working}) condotta assieme al team di sviluppo di Link-Up è stata declinata secondo la metodologia agile.\\
+Questa può essere definita come:
+\begin{quote}
+  «[...] un approccio allo sviluppo del \textit{software} basato sulla distribuzione continua di \textit{software} efficienti creati in modo rapido e iterativo»\cite{RedHat_MetodologiaAgile}.
+\end{quote}
+
+La metodologia agile, anche nota come sviluppo del \textit{software} agile (in inglese \acrlong{asd}, \acrshort{asd}), consiste in un insieme di metodi caratteristici dell'ambito sviluppo \textit{software} apparsi nei primi anni 2000 ispirati ai principi contenuti nel “Manifesto per lo sviluppo agile del \textit{software}” \cite{BeckEtAl_ManifestoSviluppoAgileSoftware}.\\
+Tale approccio, conosciuto inoltre come \textit{Lightweigth}, nasce in contrapposizione alla metodologia di sviluppo a cascata (in inglese \textit{Waterfall}), una delle più solide e antiche, e in generale a tutte le procedure di sviluppo \textit{software} tradizionali, dette \textit{Heavyweight}.\\
+Al contrario degli approcci di tipo classico, strutturati in modo sequenziale, dove ogni fase deve essere completata prima di poter passare alla seguente, e in cui ci si interfaccia con il committente sporadicamente\footnote{Gli approcci di tipo classico prevedono che l'interazione con il committente avvenga solamente a prodotto realizzato. Ciò è potenzialmente molto pericoloso: può condurre al fallimento o a grandi sprechi di tempo e di denaro.}, l'approccio agile è caratterizzato da una notevole flessibilità.
+
+All'interno del “Manifesto per lo sviluppo agile del \textit{software}”, durante la definizione dei principi alla base della nuova metodologia, gli sviluppatori si sono discostati dalla linearità e dalla rigidità tipica degli approcci del passato affermando la priorità di quattro concetti fondamentali\footnote{Tutti gli altri principi propri delle metodologie tradizionali non vengono dimenticati o estromessi ma solamente considerati di minore importanza.}:
+\begin{itemize}
+  \item «Gli individui e le interazioni più che i processi e gli strumenti;
+  
+  \item Il software funzionante più che la documentazione esaustiva;
+  
+  \item La collaborazione col cliente più che la negoziazione dei contratti;
+  
+  \item Rispondere al cambiamento più che seguire un piano»\cite{BeckEtAl_ManifestoSviluppoAgileSoftware}. 
+\end{itemize}
+La maggior attenzione riservata agli elementi sopra elencati ha portato a una segmentazione del progetto in parti più piccole, caratterizzate da lassi temporali di durata inferiore.\\
+Il paradigma agile, infatti, ammette la divisione del progetto in micro fasi, chiamate \textit{sprint}, ciascuna delle quali è dedicata all'implementazione di una porzione di \textit{software} ridotta, come, ad esempio, una specifica funzionalità (in inglese \textit{feature}).\\  
+Una volta terminato lo sviluppo delle implementazioni programmate per uno \textit{sprint}, quanto prodotto viene somministrato immediatamente al cliente. L'obiettivo è quello di ricevere un \textit{feedback} che permetta di valutare in tempi brevi il livello di soddisfazione del committente, per raggiungere un miglioramento continuo nel corso di ogni fase di sviluppo.
+
+Ciò costituisce a tutti gli effetti un'evoluzione delle metodologie di sviluppo tradizionali: a differenza di quanto accadeva in passato, l'innovativo paradigma permette ora la conduzione di più sequenze (di sviluppo e di test) continue e simultanee nel corso di un maggior numero di iterazioni che avvengono in lassi di tempo più brevi.\\
+Inoltre, è importante sottolineare come il superamento e il miglioramento dei sistemi classici non si limiti
+alla “sfera” contenutistica, riguardando anche quella concettuale. Nel suo abbandono della rigidità, infatti, la metodologia agile non si configura più come un insieme di regole da seguire in modo ferreo, bensì come un «[...] approccio alla collaborazione e ai flussi di lavoro fondato su una serie di valori in grado di guidare il [...] modo di procedere»\cite{RedHat_MetodologiaAgile}.\\
+Conseguenza di ciò è un nuovo sguardo alle relazioni lavorative. Operare rispettando delle “linee guida” (e non più delle regole) significa godere di una maggiore autonomia organizzativa e di una comunicazione con il cliente meno mediata, frequente nel corso di tutto il processo di sviluppo dell'applicativo attraverso dei referenti aziendali.
+
+\section{\textit{Framework Scrum}}
+Procedere adottando la metodologia agile non significa svolgere attività nello stesso modo in tutte le situazioni. Varie sono infatti le interpretazioni esistenti di quest'approccio allo sviluppo del \textit{software}. In gergo, (più che di “interpretazioni”) si parla di \textit{framework}, e fra i più conosciuti e utilizzati troviamo: \textit{Scrum}, \textit{Kanban} ed \textit{Extreme Programming}.
+
+\textit{Scrum}, in particolare, rappresenta il \textit{framework} impiegato per la gestione del progetto protagonista dell'elaborato, e, più in generale, il tipo di metodologia agile adottata nella stragrande maggioranza dei progetti di sviluppo \textit{software} complessi.\\
+Questo viene definito come:
+\begin{quote}
+  «[...] un \textit{framework} che aiuta i team a lavorare insieme. Proprio come una squadra di rugby (a cui deve il nome) che si allena per un grande evento sportivo, il \textit{framework Scrum} incoraggia i team a imparare attraverso l'esperienza, a organizzarsi in modo autonomo mentre lavorano su un problema e a riflettere sui risultati conseguiti e sugli insuccessi per migliorare continuamente»\cite{Atalassian_FrameworkScrum}.
+\end{quote}
+
+Il termine \textit{“Scrum”}, in inglese, ha a che fare con il rugby ed è traducibile in “mischia”. La filosofia di questo \textit{framework} ruota interamente attorno a questo sport, ispirandosi fortemente sia alla collaborazione che deve legare tutti i membri di una squadra, sia al modo in cui viene affrontata una situazione di gioco, in mischia per l'appunto.\\
+Contrariamente a quanto potrebbe sembrare, infatti, il lavoro dello sviluppatore non costituisce un qualcosa di individuale, bensì un'attività che prevede una forte interazione, in cui si opera in gruppo per la realizzazione di un prodotto. La grande mole di lavoro con la quale ci si deve misurare viene divisa in \textit{sprint}, brevi cicli temporali dedicati allo sviluppo di una singola parte dell'applicativo, all'interno dei quali l'implementazione da realizzare viene scomposta in una serie di piccoli compiti (in inglese \textit{task}) affrontati in blocco. Al termine di ogni \textit{sprint} il prodotto viene rilasciato e mostrato al cliente.
+
+Seppur la durata canonica degli \textit{sprint} vada dalle due alle quattro settimane, l'attività di sviluppo condotta assieme al team di Link-Up ha previsto un rilascio settimanale fissato per il giovedì.
+
+\subsection{Protagonisti}
+La pianificazione di un progetto secondo il \textit{framework Scrum} prevede il contributo di tre ruoli ben definiti:
+\begin{itemize}
+  \item \textbf{Team di sviluppo:} il gruppo di sviluppatori, solitamente dalle dimensioni comprese fra i cinque e i nove membri, che si occupa prima dell'organizzazione (o meglio, dell'auto-organizzazione) delle attività più importanti richieste dal cliente in \textit{task}, i quali definiscono la mole di lavoro da svolgere durante lo \textit{sprint}, e poi della realizzazione e del \textit{testing} del prodotto.\\
+  Nonostante allo stesso progetto possano essere dedicati gli sforzi di più gruppi di sviluppatori, ogni piccolo team è caratterizzato da un'anima interfunzionale. Al loro interno, membri dalle diverse capacità si occupano di attività riguardanti la loro area di competenza evitando, o per lo meno riducendo, la presenza di molteplici team specialistici\footnote{Evitare la presenza di molteplici team specialistici significa evitare che il lavoro passi, in modo lento e macchinoso, per ognuno di questi fino al suo completamento.};
+  
+  \item \textbf{\textit{Scrum master}:} colui che si occupa della corretta comprensione e realizzazione del progetto da parte del team di sviluppatori, e che ha il compito di agevolarne l'attività ove possibile: ovvero il responsabile del metodo;
+  
+  \item \textbf{\textit{Product owner}:} colui che conosce tutti i requisiti specifici del progetto e che gestisce sia la comunicazione con i clienti per la definizione di un prodotto realizzabile, sia quella con il team di sviluppo per l'effettiva realizzazione. Il \textit{product owner} deve guidare il team di sviluppo traducendo quando richiesto dal committente: ovvero il responsabile del progetto.
+\end{itemize}
+
+Il team di sviluppo di Link-Up con cui è stata svolta l'attività necessaria alla realizzazione del progetto era composto da sei membri. Al suo interno, questi erano raggruppati in due “micro-team” a seconda delle competenze: da un lato vi erano gli sviluppatori \textit{front-end} e dall'altro invece quelli \textit{back-end}. Ciascuna di queste unità era dotata di un leader, una persona responsabile degli sviluppi complessivi legati a quell'area; il leader degli sviluppi \textit{back-end} ricopriva al contempo anche il ruolo di \textit{scrum master}.
+
+\subsection{Eventi}
+La gestione di un progetto secondo la metodologia agile \textit{Scrum} prevede inoltre degli appuntamenti atti alla continua pianificazione delle attività da svolgere.\\
+I principali sono:
+\begin{itemize}
+  \item \textbf{\textit{Daily scrum}:} meeting quotidiano della durata massima di 30 minuti nel quale vengono discusse sia l'attività di sviluppo svolta il giorno precedente, che la pianificazione della giornata stessa. In entrambi i casi, qualora presenti, vengono esposte le criticità che sono effettivamente state riscontrate, o quelle che si pensa possano affliggere il flusso delle operazioni.\\
+  L'obiettivo principale del \textit{daily scrum} è l'ottimale coordinamento del proprio team di sviluppo grazie a un aggiornamento continuo riguardante il procedere dell'attività di tutti i membri;
+  
+  \item \textbf{\textit{Sprint planning}:} meeting all'interno del quale il \textit{product owner}, \textit{scrum master} e team di sviluppo definiscono la porzione di applicativo protagonista del prossimo \textit{sprint}, e la sua scomposizione in piccoli compiti;
+  
+  \item \textbf{\textit{Sprint review}:} revisione svolta al termine di ogni \textit{sprint} finalizzata a determinare se il lavoro svolto è soddisfacente, e quanto lo è. Questo momento prevede sia la partecipazione del cliente che quella del team di sviluppo;
+  
+  \item \textbf{\textit{Sprint retrospective}:} momento di confronto fra i membri del team per decidere quale sarà il percorso da seguire nel corso degli sviluppi futuri. Sulla base del \textit{feedback} del cliente, viene deciso cosa tenere e cosa rimuovere per migliorare il \textit{modus operandi} e di conseguenza il prodotto dello \textit{sprint} successivo.
+\end{itemize}
+
+L'attività svolta con il team di sviluppo di Link-Up è stata caratterizzata da un \textit{daily-scrum} che ha avuto luogo ogni mattina (a eccezione del martedì\footnote{Come anticipato nella \autoref{sec:Smart working}, il martedì è il giorno in cui le attività sono state compiute in presenza.}) attraverso una video chiamata fissata per le 9:00. Lo \textit{sprint-planning} è avvenuto settimanalmente, con stesse modalità e orario del \textit{daily-scrum}, il venerdì.
+Infine, \textit{sprint review} e \textit{retrospective}, sono stati svolti, ma non secondo le modalità “standard”  discusse poco fa. Infatti, lo \textit{sprint review} ha previsto un confronto solamente fra \textit{scrum master}, \textit{product owner} e cliente; il \textit{feedback} inerente all'attività relativa allo \textit{sprint} analizzato veniva poi comunicato al team di sviluppo dallo \textit{scrum master} nel corso dei meeting mattutini. Lo \textit{sprint retrospective}, invece, non ha avuto un vero e proprio momento dedicato poiché è stato integrato all'interno di altri eventi, ad esempio, durante i \textit{daily-scrum} o lo \textit{sprint planning}.
+
+\subsection{Strumenti}
+Un'attività di sviluppo, di qualunque natura essa sia, richiede degli strumenti per la pianificazione del flusso di lavoro in grado di coordinare al meglio le attività di tutti i ruoli coinvolti.
+
+Jira costituisce l'applicativo utilizzato per la gestione del progetto oggetto dell'elaborato e, assieme a \textit{Slack}, \textit{Trello}, \textit{YouTrack} e tanti altri, una delle soluzioni più utilizzate da \textit{product owner}, \textit{scrum master} e dagli sviluppatori per l'organizzazione del lavoro in team secondo la metodologia agile \textit{Scrum}.  
+
+Questa piattaforma \textit{software} struttura le attività avvalendosi dei seguenti artefatti:
+\begin{itemize}
+  \item \textbf{\textit{Product Backlog}:} elenco che racchiude tutti i requisiti specificati dal cliente. Poiché il progetto è in continua evoluzione, lo è anche il \textit{product backlog}; il suo aggiornamento termina solamente quando l'attività di sviluppo è giunta al culmine.\\
+  Il \textit{product owner} gestisce quest'elenco amministrandone il contenuto, segmentando i vari requisiti in piccoli \textit{task}, e curandone l’ordinamento, basandosi sulla priorità delle implementazioni da introdurre;
+  
+  \item \textbf{\textit{Sprint Backlog}:} elenco che racchiude i \textit{task} da svolgere nel corso di uno \textit{sprint}. Si tratta di una stima fatta dal team di sviluppo osservando sia le priorità (specificate nel \textit{product backlog}) che la mole di lavoro richiesto per il completamento dello \textit{sprint};
+  
+  \item \textbf{Incremento:} elenco di tutti i \textit{task} (del \textit{product backlog}) portati a termine, appartententi sia allo \textit{sprint} corrente che ai precedenti. 
+  % Al termine dello sprint l’incremento dovrà essere realizzato in base a quanto concordato dal Team di Sviluppo per garantire un prodotto utilizzabile.
+\end{itemize} 
+
+% CI/CD?

@@ -1,0 +1,5 @@
+const titles = {
+  // [...]
+  '/magazine': 'Magazine',
+  // [...]
+};

@@ -1,0 +1,1 @@
+ const example = useContext(ExampleContext)

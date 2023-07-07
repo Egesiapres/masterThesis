@@ -1,0 +1,485 @@
+\selectlanguage{italian}
+
+\chapter{Soluzioni tecnologiche}
+Il quarto capitolo prosegue in quella che è l'analisi del metodo impiegato con il team di sviluppo, facalizzandosi però su aspetti ancora più pragmatici. Infatti, va a descrivere le soluzioni adottate a livello tecnologico, ovvero tutti quegli strumenti che sono stati concretamente utilizzati durante l'effettiva realizzazione delle implementazioni. A tal fine, il capitolo parte fornendo una sostanziosa descrizione di React e \acrlong{mui}, le due principali librerie attorno alle quali ruota l'intero progetto, per poi concludersi con una rapida panoramica delle altre incorporate dall'applicativo e utilizzate.
+
+\section{React}
+\label{sec:React}
+React (anche conosciuto come React.js o ReactJS) è una libreria Javascript \gls{opensg} per la creazione di interfacce utente (in inglese \acrlong{ui}, \acrshort{ui}) interattive.
+
+Creata e mantenuta da Meta (e già in precedenza da Facebook) e da varie aziende e sviluppatori a partire dal 2013, nel corso degli anni, la libreria ha trovato largo consenso presso la comunità di sviluppatori fino a diventare la più popolare in assoluto nei progetti di sviluppo \textit{software} riguardanti applicazioni web.\\
+Con statistiche che affermano un suo impiego in circa il 60\% dei casi, infatti, React surclassa \textit{Angular}, \textit{Vue}\footnote{\textit{Angular} (o \textit{Angular 2+}, evoluzione di \textit{AngularJS}) è stato creato da Google nel 2010. \textit{Vue} (o \textit{Vue.js}), invece, è nato 2016 a opera di Evan-You. Entrambi sono dei \textit{framework}.} e tante altre tecnologie per la creazione di \acrshort{ui} in termini di utilizzo e diffusione.\\
+React è adottato sia da startup che da grandi compagnie affermate. Fra i più famosi \textit{player} di fama internazionale che hanno impiegato questa libreria possiamo citare, ad esempio, \textit{Facebook}, \textit{Instagram}, \textit{Whatsapp}, \textit{Netflix}, \textit{Spotify}, \textit{Paypal}, \textit{Yahoo}, \textit{Uber}, \textit{AirBnB}, \textit{Groupon} e \textit{Dropbox}.
+
+Le caratteristiche che hanno permesso a React di affermarsi sul mercato e di guadagnarsi un gran numero di sostenitori sono:
+\begin{itemize}
+  \item \textbf{Semplicità:} React è facile da imparare\footnote{Possedere una buona conoscenza di JavaScript in partenza permette un più agevole approccio.} e aiuta a scrivere codice semplice. Nonostante ciò, la libreria fornisce agli sviluppatori degli strumenti che permettono di gestire l'applicazione nel profondo. I più importanti sono quelli che consentono la gestione dello stato, dell'azione e degli eventi;
+  
+  \item \textbf{Supporto:} poiché creato e mantenuto da \textit{Facebook}, adottato da molti marchi noti e dotato di una grande community, React dispone di una vasta documentazione e di un ampio numero di risorse prodotte gratuitamente dagli utenti e reperibili online.\\
+  Tutto ciò contribuisce alla semplicità di apprendimento della libreria da un lato, e alla stabilità del \textit{trend} di sviluppo che la vede coinvolta dall'altro;
+  
+  \item \textbf{Modularità:} React permette di comporre \acrshort{ui} complesse assemblando componenti. Ognuno di questi ha una struttura e un comportamento specifici; una volta creati, i componenti possono essere utilizzati ogni qualvolta è necessario, in qualsivoglia parte dell’applicazione;
+  
+  \item \textbf{Flessibilità:} in virtù della sua modularità, React permette la creazione di applicazioni semplici da scalare e mantenere.\\
+  React è facilmente integrabile in un progetto già esistente, le sue funzionalità possono essere estese attraverso librerie dedicate e può essere usato sia lato client che server.\\ 
+  Inoltre, è possibile realizzare applicazioni \textit{mobile} multipiattaforma\footnote{La applicazioni \textit{mobile} multipiattaforma possono essere eseguite su dispositivi aventi sistemi operativi differenti, quindi, sia su iOS che su Android.} (in inglese \textit{cross-platform}) utilizzando React Native;
+  
+  \item \textbf{\textit{Performance}:} il tempo di \textit{rendering} delle pagine delle applicazioni create usando React è minimo. Attraverso il \gls{dom} virtuale, infatti, vengono renderizzate solamente le porzioni dell'interfaccia che hanno subito dei cambiamenti. Oltretutto, poiché la libreria ben si presta alla \gls{seo}, le applicazioni web create attraverso React sono in grado di ottenere un buon posizionamento all'interno dei motori di ricerca e sono facili da trovare.
+\end{itemize}
+% spazio
+% All'interno del paradigma \acrshort{mvc}\footnote{Si veda la \autoref{subec:Architettura}.} React si occupa della V, della “vista”, ovvero della gestione di tutto ciò che ha a che fare con l'interfaccia grafica e con il suo funzionamento. 
+React è una libreria dichiarativa\footnote{L'approccio opposto è quello imperativo. Il suo \textit{modus operandi} prevede che il browser web venga istruito per la modifica del \gls{dom}. \textit{JQuery} è una libreria imperativa.}. Ciò significa che le \acrshort{ui} costruite non vengono modellate agendo direttamente sul \gls{dom} e modificando le operazioni necessarie alla costruzione dei componenti, ma manipolando lo stato di questi ultimi.
+
+In definitiva, l'obiettivo che la libreria si pone è quello di costruire interfacce utente modulari, frutto dell'aggregazione di componenti riutilizzabili che ne semplificano la struttura generale.
+
+\subsection{JSX} 
+\label{subsec:JSX}
+JavaScript\footnote{Una delle caratteristiche distintive di JavaScript è la sua grande estensibilità e, di conseguenza, adattabilità. Infatti, come dimostrato dallo stesso React, grazie all'impiego di librerie e \textit{framework} appositamente sviluppati, JavaScript è in grado di offrire un'ampia gamma di soluzioni, di diverso tipo, ai problemi da risolvere.}, il linguaggio di programmazione del web per eccellenza, costituisce il nucleo attorno al quale React orbita dal punto di vista tecnologico. I componenti che costituiscono le interfacce utente, infatti, sono scritti grazie a un'estensione della sua sintassi chiamata \acrshort{jsx} (acronimo dell'inglese \acrlong{jsx}), realizzata appositamente da \textit{Facebook}.
+
+Il \acrshort{jsx} non rappresenta \textit{vanilla} JavaScript; poiché i browser web possono leggere solamente codice JavaScript puro, non sono in grado di interpretarlo. Quindi, se un file contiene codice \acrshort{jsx}, per essere eseguito deve essere compilato: prima che il file raggiunga il browser web, un compilatore\footnote{Il compilatore dei progetti basati su JavaScript è \textit{Babel} e la sua impostazione avviene in modo automatico alla creazione di un nuovo progetto React.} \acrshort{jsx} deve “tradurre” tutto il codice \acrshort{jsx} in esso contenuto in chiamate a funzioni JavaScript. Come illustrato nel \autoref{jsx_createElement_structure.js}, questo processo avviene grazie all'invocazione della funzione \texttt{createElement()}. 
+
+\lstinputlisting[caption=Struttura della funzione \texttt{createElement()}, label=jsx_createElement_structure.js, language=JSX]{listings/capitolo4/React/JSX/createElement_structure.js}
+
+Di seguito, grazie al \autoref{jsx_componentWithJSX} e al \autoref{jsx_componentWithNoJSX} viene illustrato ciò che accade durante la trasposizione da \acrshort{jsx} a JavaScript puro.
+
+\lstinputlisting[caption=Componente scritto in \acrshort{jsx}, label=jsx_componentWithJSX, language=JSX]{listings/capitolo4/React/JSX/componentWithJSX.js}
+
+\lstinputlisting[caption=Componente scritto in JavaScript puro, label=jsx_componentWithNoJSX, language=JSX]{listings/capitolo4/React/JSX/componentWithNoJSX.js}
+
+Data la sua natura di estensione sintattica, «[...] \acrshort{jsx} produce elementi React [...]»\cite{React_IntroduzioneJSX}: il suo scopo è la creazione di elementi del \gls{dom} che vengono poi renderizzati all'interno del \gls{dom} di React.\\
+Poiché la funzione \texttt{render()} può restituire solamente un nodo, una fra le più importanti regole sintattiche del \acrshort{jsx} prevede che, affinché il codice venga compilato senza errori, un'espressione debba essere contenuta all'interno di un solo elemento\footnote{In altre parole, il tag iniziale e quello finale devono appartenere allo stesso elemento.}.
+
+Il codice \acrshort{jsx} ricorda molto quello \gls{html}. Le unità più semplici sono chiamate “elementi”; come illustrato dal \autoref{jsx_const_element}, gli elementi possono essere inseriti in ogni posto in cui possono essere inserite le espressioni JavaScript (ad esempio, in variabili, funzioni, \textit{array}, oggetti...). 
+
+\lstinputlisting[caption=Variabile contenente un elemento \acrshort{jsx}, label=jsx_const_element, language=JSX]{listings/capitolo4/React/JSX/const_element.js}
+% spazio
+Gli elementi \acrshort{jsx} possono essere annidati all'interno di altri elementi \acrshort{jsx}\footnote{Quando degli elementi \acrshort{jsx} sono annidati all'interno di altri elementi \acrshort{jsx}, tutta l'espressione deve essere racchiusa fra parentesi tonde.} e avere degli attributi. La loro sintassi prevede che si utilizzi un nome, seguito da un segno di uguale (\texttt{=}), seguito da un valore. Il valore deve essere racchiuso fra virgolette. 
+
+Nonostante la grande similitudine a livello grammaticale, esistono delle differenze fra \acrshort{jsx} e \gls{html}. Infatti, «dal momento che \acrshort{jsx} è più vicino al JavaScript che all’\gls{html}, React \gls{dom} utilizza la notazione camelCase nell’assegnare il nome agli attributi, invece che quella utilizzata normalmente nell’\gls{html}, e modifica il nome di alcuni attributi. Ad esempio, \texttt{class} diventa \texttt{className} in \acrshort{jsx} e \texttt{tabIndex} diventa \texttt{tabIndex}»\cite{React_IntroduzioneJSX}. La parola \texttt{class}, nello specifico, non può essere utilizzata poiché rappresenta una parola riservata in JavaScript. Il problema viene risolto quando il codice \acrshort{jsx} viene renderizzato, con la trasformazione degli attributi \texttt{className} in \texttt{class}.\\
+Un altro punto di discontinuità riguarda i tag autoconclusivi (in inglese \textit{self-closing tags}\footnote{I tag autoconclusivi sono quei tag che svolgono sia l'apertura che la chiusa dell'elemento non utilizzando due tag appositi.}). A differenza dell'\gls{html}, in cui questo tipo di tag è costituito dal nome del tag racchiuso all'interno delle parentesi angolari (ad esempio, \texttt{<br>}), nel \acrshort{jsx} la sintassi è la medesima ma con l'aggiunta dello slash\footnote{L'inclusione dello slash prima della parentesi angolare finale in \gls{html} è opzionale.} (\texttt{/}) prima della parentesi angolari finali.
+
+Il codice inserito fra i tag di un elemento \acrshort{jsx} viene considerato come \acrshort{jsx}, non come normale JavaScript. Per fare in modo che ciò non accada lo si deve racchiudere fra parentesi graffe.\\
+Poiché il codice JavaScript iniettato nel \acrshort{jsx} fa parte dello stesso ambiente del resto del JavaScript nel file, è possibile accedere alle variabili all'interno di un'espressione \acrshort{jsx}, anche se tali variabili sono state dichiarate all'esterno. Di nuovo, ciò vien fatto richiamando la variabile fra parentesi graffe\footnote{È pratica molto diffusa fra gli sviluppatori utilizzare variabili per l'impostazione degli attributi in \acrshort{jsx}.}.
+
+Gli elementi \acrshort{jsx} possono avere degli ascoltatori di eventi (in inglese \textit{event listeners}), degli attributi speciali di cui un elemento \acrshort{jsx} può essere dotato. Il loro nome è composto dalla parola \textit{“on”}, seguita dal tipo di evento per il quale si sta ascoltando (ad esempio, \texttt{onClick}\footnote{Anche in questo caso, il \acrshort{jsx}, a differenza dell'\gls{html}, adotta la notazione camelCase. In \gls{html} avremmo trovato, ad esempio, \texttt{onclick}.}), e il loro valore deve essere una funzione. Gli attributi ascoltatori di eventi sono numerosi (un elenco che li raggruppa per categoria è riportato al seguente link \cite{React_SyntheticEvent}) e ciascuno corrisponde a un evento specifico. 
+
+Dato che all'interno di un'espressione \acrshort{jsx} non è possibile iniettare un'istruzione \texttt{if}, quando è necessario implementare tale costrutto si può ricorrere a tre alternative. La prima prevede semplicemente che la condizione venga spostata al di fuori del codice \acrshort{jsx}\footnote{Il codice precedentemente all'esterno della condizione \texttt{if} viene messo all'interno della condizione e del corpo dell'istruzione ora spostata all'esterno.}. La seconda consiste nell'utilizzo dell'operatore ternario (in inglese \textit{ternary} o \textit{conditional operator}), l'unico operatore JavaScript che ammette tre operandi: una condizione seguita da un punto interrogativo (\texttt{?}), un'espressione da eseguire se la condizione è veritiera seguita da due punti (\texttt{:}) e, infine, un'espressione da eseguire se la condizione è falsa.\\
+La terza alternativa, invece, prevede che venga impiegato l'operatore logico AND\footnote{L'operatore ternario e l'peratore logico AND non sono specifici di React ma vengono utilizzati molto spesso dagli sviluppatori nella scrittura del codice.} (\texttt{\&\&}); la sua situazione d'utilizzo ideale è quella in cui deve essere eseguita un'azione in un caso, ma nulla nell'altro.
+
+Inoltre, all'interno di React e di \acrshort{jsx} vi è un ampio utilizzo dell'iteratore \texttt{map()}. Il suo compito è la creazione di liste in modo dinamico per tutti gli elementi contenuti da un array. L'unica regola da rispettare prevede che venga assegnata una \textit{prop} \texttt{key} al componente padre che verrà restituito per tutti gli elementi su cui sta venendo eseguito il \textit{mapping}. Il valore della \textit{prop} \texttt{key} deve essere univoco per ogni elemento generato.
+
+Tutti i concetti appena descritti sono illustrati all'interno del \autoref{jsx_const_expression}.
+
+\lstinputlisting[caption=Variabile contenente un'espressione \acrshort{jsx}, label=jsx_const_expression, language=JSX]{listings/capitolo4/React/JSX/const_expression.js}
+
+Infine, come riportato dalla documentazione officiale, vale la pena precisare che: 
+\begin{quote}
+«React non obbliga ad utilizzare \acrshort{jsx}, ma la maggior parte delle persone lo trovano utile come aiuto visuale quando lavorano con la \acrshort{ui} all’interno del codice JavaScript. Inoltre, \acrshort{jsx} consente a React di mostrare messaggi di errore e di avvertimento più efficaci»\cite{React_IntroduzioneJSX}.
+\end{quote}
+
+\subsection{Componenti}
+L'intero \textit{pattern} architetturale di React ruota attorno al concetto di modularità; tale approccio alla costruzione di interfacce utente è reso possibile attraverso l'impiego di componenti.
+
+Un componente può essere visto come un atomo, come una particella, come una microstruttura dotata di caratteristiche peculiari che è in grado, all'occorrenza, di relazionarsi con l'esterno. Solitamente, il loro compito consiste nel \textit{rendering} di una porzione di \gls{html}. L'affiancamento e l'interazione di più componenti permette la creazione, o meglio, la composizione, di organismi, di macrostrutture, di \acrshort{ui} potenzialmente molto complesse sia nella forma che nel comportamento.\\
+React consente agli sviluppatori di creare componenti personalizzati, blocchi di codice indipendenti l'uno dall'altro, che possono essere aggregati fra loro e riutilizzati più volte all'interno dell'applicazione.\\
+Una simile filosofia di progettazione rispetta il principio \acrfull{dry}, uno dei più importanti quando si parla di programmazione. Banalmente, poiché i componenti vengono scritti una sola volta, viene evitata la ridondanza del codice, il quale ne guadagna in termini di qualità.
+
+É buona prassi che i componenti siano piccoli, rispondendo a una funzione specifica, e che vi sia una netta separazione fra i vari realizzati; tendenzialmente, a ognuno è dedicato un apposito file.\\
+I nomi dei componenti adottano la notazione camelCase, e, in aggiunta, la prima lettera deve essere maiuscola.
+Una volta scritto il codice, il componente viene esportato grazie alla parola chiave (in inglese \textit{keyword}) \texttt{export} di JavaScript (ad esempio, \texttt{export default FunctionComponent}). Così facendo, questo viene reso disponibile all'utilizzo all'interno del progetto. Quando il componente deve essere utilizzato all'interno di un file, invece, viene importato tramite la parola chiave \texttt{import}, seguita dal suo nome e dalla sua posizione\footnote{Solitamente, le importazioni in generale (ad esempio, di componenti, librerie...) vengono effettuate nella parte alta del file.} (ad esempio, \texttt{import FunctionComponent from './components/FunctionComponent.js'}). Una volta che il componente è stato importato può essere utilizzato richiamando, dove desiderato, la sua istanza; l'istanza di un componente può essere richiamata anche all'interno di un altro componente.
+% rivedi uso di export default
+% altre informazioni sull'importing (react, react-dom)
+% dove vengono renderizzati i componenti
+
+\subsubsection{\textit{Class} vs \textit{Function}}
+\label{subsubsec:Class vs Function}
+I componenti di React possono essere di due tipi, di classe (in inglese \textit{class components}) e di funzione (in inglese \textit{function components}); il nome di entrambi è ispirato al metodo impiegato per la loro creazione.
+
+I primi rappresentano la versione più tradizionale ed elementare di quest'elemento alla base di React. La loro definizione avviene attraverso il concetto, comune nella maggior parte dei linguaggi di programmazione (fra cui anche JavaScript), di classe. Questo costrutto rappresenta una sorta di \textit{template} atto alla creazione di oggetti che condividono delle caratteristiche.\\
+Poiché anche i componenti di classe ne possiedono di comuni, per evitare che una serie di proprietà e metodi vengano riscritti ogni singola volta, la loro creazione avviene tramite l'estensione della classe \texttt{Component} attraverso la dichiarazione di classe.\\
+Per questo motivo, come possibile vedere a riga 1 del \autoref{class_component}, il nome del componente, \texttt{ClassComponent}, è preceduto dalla parola chiave \texttt{class} e seguito da \texttt{extends}.\\
+Un nuovo componente, quindi, altro non è che una classe figlia che estende la classe \texttt{Component}\footnote{La classe \texttt{Component} rappresenta una delle proprietà dell'oggetto \texttt{React}, oggetto disponibile grazie all'importazione dalla libreria \texttt{react} a inizio file.}.\\
+Il corpo del componente di classe, ovvero il contenuto delle parentesi graffe, fornisce delle istruzioni per il \textit{rendering} dell'elemento a schermo. Di vitale importanza è il metodo \texttt{render()}, l'unico che deve essere necessariamente presente in ogni componente; all'interno del suo corpo, la parola chiave \texttt{return} è seguita da tutto il codice \acrshort{jsx} che si desidera venga visualizzato a schermo all'interno dell'interfaccia.\\
+Il contenuto del corpo del metodo \texttt{render()} illustrato da riga 2 a 4 è un semplice \texttt{<h1>}.
+
+\lstinputlisting[caption=Componente di classe, label=class_component, language=JSX]{listings/capitolo4/React/components/class_component.js}
+
+I componenti funzione (o funzionali), invece, rappresentano una versione allo stesso tempo più avanzata e semplice di quest'elemento. La loro creazione avviene attraverso la dichiarazione di funzione; per questo motivo, fanno uso della parola chiave \texttt{function}, come illustrato dal \autoref{function_component}, oppure della sintassi funzione freccia\footnote{La sintassi funzione freccia (in inglese \textit{arrow function}) prevede che la funzione venga dichiarata attraverso la parola chiave \texttt{const} seguita dal nome della funzione e da un uguale (=). Quest'ultimo simbolo è a sua volta seguito dall'argomento della funzione (solo se l'argomento è assente, o se gli argomenti son più di uno è richiesto l'utilizzo delle parentesi tonde (\texttt{()})) e da una freccia (\texttt{=>}) che precede il corpo della funzione, racchiuso dalle parentesi graffe. La sintassi funzione freccia è stata introdotta con \gls{es6}.}. 
+A differenza dei componenti di classe, il loro corpo non presenta il metodo \texttt{render()}\footnote{Di conseguenza, i componenti di funzione non presentano nemmeno le parentesi graffe del corpo del metodo \texttt{render()}.} ma solamente la parola chiave \texttt{return} e codice il \acrshort{jsx} che andranno a renderizzare.
+
+\lstinputlisting[caption=Componente funzionale, label=function_component, language=JSX]{listings/capitolo4/React/components/function_component.js}
+
+Nonostante a partire dalla versione 16.8.0 di React i componenti di classe e quelli funzionali condividono le stesse funzionalità, è possibile affermare che i secondi siano migliori in termini di pulizia del codice: questi offrono un modo più elegante e conciso di creare componenti. Inoltre, alcuni sviluppatori li preferiscono ai componenti di classe per la loro semplicità d'utilizzo grazie a funzioni come, ad esempio, gli \textit{hooks}\footnote{Gli \textit{hooks} sono descritti nella \autoref{subsec:Hooks}.}. Il codice stesso che si cela dietro alle implementazioni relative al progetto oggetto dell'elaborato utilizza unicamente componenti funzionali per i suddetti motivi.
+
+In definitiva, è bene sottolineare che i componenti funzionali sono facoltativi e retro compatibili: questi possono essere utilizzati congiuntamente con i componenti di classe poiché non costituiscono il loro rimpiazzo, ma solamente una pregiata alternativa.
+
+\subsubsection{props}
+I componenti di React sono in grado di relazionarsi fra di loro scambiandosi delle informazioni, meglio conosciute come \textit{props}\footnote{Tutti i componenti sono dotati dell'oggetto \textit{props}, oggetto che contiene le informazioni passate fra componenti, le \textit{props}. Il termine \textit{props}, quindi, ha un duplice utilizzo: viene usato sia per indicare l'oggetto che contiene le informazioni passate, sia per riferirsi al plurale di \textit{prop}, quando queste sono più di una.}.
+
+Il passaggio di \textit{props} da componente a componente avviene fornendo all'istanza di un componente un attributo dotato di un valore\footnote{Il meccanismo di passaggio delle \textit{props} ricorda molto quello degli attributi in \gls{html}.}; il nome dell'attributo può essere di qualsiasi tipo, è a discrezione dello sviluppatore, e ogni volta che deve essere passato un qualcosa che non sia una stringa, il valore deve essere racchiuso fra parentesi graffe\footnote{Un tipo particolare di valore che si è soliti passare fra componenti sono le funzioni di gestione dell'evento (in inglese \textit{event handlers functions}). Affinché il loro passaggio vada a buon fine, queste devono essere dichiarate all'interno del corpo del componente. La convenzione prevedere che il nome della funzione che verrà assegnata come valore di uno specifico attributo ascoltatore di eventi sia composto dalla parola \textit{handle} seguita dal nome dell'attributo ascoltatore di eventi (ciò che segue l' \textit{on}). Come mostrato a riga 2 del \autoref{props_passing}, la funzione \texttt{handleClick} verrà assegnata come valore dell'attributo ascoltatore di eventi \texttt{onClick}.}.\\
+Nell'esempio del \autoref{props_passing}, come possibile vedere da riga 7 a 10, l'istanza del componente \texttt{<NestedComponent />} è dotata delle \textit{props} \texttt{example} e \texttt{handleClick}. I valori a esse associati sono, rispettivamente, la stringa \texttt{example} e la funzione \texttt{handleClick}.
+
+\lstinputlisting[caption=Passaggio di \textit{props}, label=props_passing, language=JSX]{listings/capitolo4/React/components/props_passing.js}
+
+Per poter usufruire del valore delle \textit{props} è necessario accedere a esse; il metodo d'accesso differisce a seconda del tipo di componente in uso.\\
+Nei componenti di classe, le informazioni passate fra componenti sono rese disponibili attraverso la sintassi \texttt{this.props} seguita da un punto e dal nome della \textit{prop} alla quale si vuole accedere.\\
+Nell'esempio del \autoref{props_accessing_class_component},  come mostrato alle righe 5 e 6, l'accesso alle informazioni avviene grazie alle espressioni \texttt{this.props.example} e \texttt{this.props.handleClick}.
+
+\lstinputlisting[caption=Accesso alle \textit{props} in un componente di classe, label=props_accessing_class_component, language=JSX]{listings/capitolo4/React/components/props_accessing_class_component.js}
+
+Nei componenti funzionali, invece, l'accesso alle \textit{props} viene garantito passando l'oggetto \texttt{props} come argomento del componente stesso, e grazie all'uso della sintassi \texttt{props} seguita da un punto e dal nome della \textit{prop} alla quale si vuole accedere.\\
+Nell'esempio del \autoref{props_accessing_function_component}, il componente funzionale \texttt{NestedComponent} è dotato dell'argomento \textit{props} (a riga 1) e l'accesso alle informazioni avviene tramite le espressioni \texttt{props.example} e \texttt{props.handleClick} (alle righe 4 e 5).
+
+\lstinputlisting[caption=Accesso alle \textit{props} in un componente funzionale, label=props_accessing_function_component, language=JSX]{listings/capitolo4/React/components/props_accessing_function_component.js}
+
+In aggiunta, per una migliore qualità del codice, nei componenti funzionali è possibile accedere alle \textit{props} avvalendosi della destrutturazione dell'oggetto (in inglese \textit{object destructoring}). Questa pratica consiste nell'inserire le \textit{props} alle quali si desidera accedere all'interno delle parentesi graffe separandole con una virgola, per poi accedere a grazie al solo utilizzo del loro nome\footnote{La destrutturazione dell'oggetto permette di rimuovere dal codice la sintassi \texttt{props} seguita dal punto, che in progetti di grandi dimensioni può essere ripetuta numerose volte.}.\\
+Nell'esempio del \autoref{props_accessing_function_component_object_destructoring}, al componente funzionale \texttt{NestedComponent} è passato un argomento che, avvalendosi della destrutturazione dell'oggetto, si compone delle \textit{props} \texttt{example} e \texttt{handleClick} (riga 1). All'interno del corpo del componente, l'accesso alle \textit{props} avviene semplicemente con l'utilizzo del loro nome (riga 4 e 5).
+
+\lstinputlisting[caption=Accesso con destrutturazione alle \textit{props} in un componente funzionale, label=props_accessing_function_component_object_destructoring, language=JSX]{listings/capitolo4/React/components/props_accessing_function_component_object_destructoring.js}
+
+All'interno dei componenti, le  \textit{props} vengono quasi sempre utilizzate o per renderizzare dati a schermo, oppure per specificare le funzioni da eseguire in relazione agli attributi ascoltatori di eventi\footnote{Gli attributi ascoltatori di eventi di \acrshort{jsx} sono descritti nella \autoref{subsec:JSX}.}. Quindi, è comune imbattersi nelle sintassi appena descritte nel codice all'interno del corpo del metodo \texttt{render()}, nel caso dei componenti di classe, oppure nel codice che segue la parola chiave \texttt{return} nel caso dei componenti funzionali. Qui, le \textit{props} vengono richiamate all'interno di tag, oppure per l'assegnazione del valore di un attributo ascoltatore di eventi.
+
+\subsubsection{Stato}
+I componenti di React possono accedere a delle informazioni anche attraverso lo stato. 
+
+A differenza delle \textit{props}, lo stato non proviene dall'esterno: questo viene definito internamente al componente, il quale viene dotato della proprietà \texttt{state}. Come mostrato da riga 2 a 5 del \autoref{state_declaration_update_class_component}, la proprietà \texttt{state} (all'interno della sintassi \texttt{this.state}) si trova sempre all'interno di un metodo costruttore, \texttt{constructor(props)}, il quale dev'essere necessariamente dotato del metodo \texttt{super(props)}.\\
+Il valore di \texttt{this.state} dev'essere un oggetto che rappresenta lo "stato" iniziale di qualsiasi istanza del componente.
+
+In un componente di classe, similmente a quanto visto per le \textit{props}, l'accesso a una proprietà contenuta nello stato viene effettuato attraverso la sintassi \texttt{this.state} seguita da un punto e dal nome della proprietà alla quale si vuole accedere.\\
+Nell'esempio del \autoref{state_declaration_update_class_component}, come possibile vedere a riga 14, l'accesso alla proprietà contenuta nello stato è effettuato grazie alla sintassi \texttt{this.state.example}.
+
+Inoltre, lo stato è caratterizzato dalla possibilità di essere modificato: all'interno di un componente, il suo valore iniziale può essere aggiornato grazie all'invocazione della funzione \texttt{this.setState()}. Seppur questa accetti due argomenti, quello più importante e comunemente utilizzato è l'oggetto, ovvero ciò che andrà a sostituire lo stato iniziale precedentemente dichiarato dentro costruttore\footnote{Il secondo argomento accettato dalla funzione \texttt{this.setState()} è una funzione di \textit{callback}. Come già detto, tale argomento non viene quasi mai usato.}.\\
+Sempre nello stesso esempio, come illustrato da riga 7 a 9, la funzione \texttt{this.setState()}, a cui è passato come argomento l'oggetto \texttt{{example: 'example2'}}, è stata utilizzata all'interno del corpo della funzione \texttt{handleClick()}.
+
+\lstinputlisting[caption=Dichiarazione e aggiornamento dello stato in un componente di classe, label=state_declaration_update_class_component, language=JSX]{listings/capitolo4/React/components/state_declaration_update_class_component.js}
+
+All'interno dei componenti funzionali, invece, la gestione dello stato avviene in maniera più semplice e immediata tramite l'\textit{hook} \texttt{useState()}\footnote{L'\textit{hook} \texttt{useState()} è descritto nella \autoref{subsubsec:Built-in hooks}.}.
+
+% stateless functional component
+
+\subsection{\textit{Hooks}}
+\label{subsec:Hooks}
+Dal suo rilascio nel 2013, React è cambiato molto nel corso degli anni. Senz'ombra di dubbio, una delle introduzioni più importanti è stata apportata dalla versione 16.8.0 della libreria, la quale è riuscita a svecchiarne e semplificarne ulteriormente il funzionamento grazie all'introduzione degli \textit{hooks}.\\
+La documentazione definisce l'\textit{hook} come:
+\begin{quote}
+  «[...] una speciale funzione che ti permette di “agganciare” funzionalità di React»\cite{React_UsareHookStateCosHook}.  
+\end{quote}
+
+% tutti i problemi che vanno a risolvere?
+Gli \textit{hooks} «[...] permettono di utilizzare più funzioni di React senza dover ricorrere alle classi»\cite{React_IntroduzioneHooks_ClassiConfondono}, quindi, anche con i componenti funzionali. Per la precisione, gli \textit{hooks} funzionano solamente in combinazione con questi ultimi;  assieme a essi contribuiscono alla scrittura di un codice più leggibile e intuitivo.\\
+Ne esistono di due tipi: \textit{built-in}, ovvero quegli \textit{hooks} presenti nella libreria React a priori, oppure personalizzati, ovvero quegli \textit{hooks} realizzati appositamente dagli sviluppatori per soddisfare delle esigenze su misura. Delle convenzioni specificano come deve essere assegnato il nome a un \textit{hook} personalizzato in fase di creazione: deve adottare la notazione camelCase e, più nello specifico, utilizzare la parola \texttt{use} seguita da un'altra, scelta a piacimento, solitamente connessa del compito assolto dall'\textit{hook} (ad esempio, \texttt{useExample()}).\\
+Gli \textit{hooks} possono essere invocati all'interno degli \textit{hooks} personalizzati ma non «[...] all'interno di cicli, condizioni o funzioni nidificate»\cite{React_PanoramicaHooks}.
+
+Proprio come i componenti funzionali\footnote{Si veda la \autoref{subsubsec:Class vs Function}.}, queste particolari funzioni sono facoltative e retro compatibili. Infatti, è possibile «provare [...] gli \textit{hooks} in pochi componenti senza dover riscrivere alcun codice esistente [...]» e senza obblighi, e il loro impiego non comporta «[...] alcun cambiamento che possa rompere funzionalità esistenti»\cite{React_IntroduzioneHooks_Retrocompatibilità}.
+
+In ogni caso, però, l'utilizzo degli \textit{hooks} è vincolato alla loro importazione all'interno di un progetto; ancora una volta, è necessario utilizzare la parola chiave \texttt{import} seguita dal nome dell'\textit{hook}, seguito dalla parola chiave \texttt{from}, e da \texttt{'react'} nel caso di un \textit{built-in hook}, oppure dalla posizione nel caso di un \textit{hook} personalizzato (ad esempio, \texttt{'./hooks/useExample'}).
+
+\subsubsection{\textit{Built-in hooks}}
+\label{subsubsec:Built-in hooks}
+I più importanti \textit{built-in hooks} di React utilizzati all'interno del progetto oggetto dell'elaborato sono:
+
+\begin{itemize}
+  \item {\texttt{useState()}}: permette di dichiarare una variabile di stato, fornendo un «[...] modo per “conservare” qualche valore [...]»\cite{React_UsareHookState} e andando a soppiantare la sintassi \texttt{this.state} tipica dei componenti di classe: permette di «[...] aggiungere lo state React nei componenti funzione»\cite{React_UsareHookState}.\\
+  Quest'\textit{hook} accetta un solo argomento, un qualsiasi valore che consente di inizializzare lo stato iniziale. I valori che \texttt{useState()} restituisce sono lo stato corrente, e una funzione per il suo aggiornamento, il \textit{setter}.\\
+  Nell'esempio del \autoref{biHooks_useState}, lo stato corrente è rappresentato dalla variabile di stato \texttt{example}, il cui valore iniziale è la stringa \texttt{'example'}, mentre il \textit{setter} è costituito dalla funzione \texttt{setExample()}\footnote{Nei componeneti di classe, avremmo trovato le sintassi \texttt{this.state.example} e \texttt{this.setExample()}.}.
+  
+  \lstinputlisting[caption=\textit{Built-in hook} \texttt{useState()}, label=biHooks_useState, language=JSX]{listings/capitolo4/React/hooks/biHooks_useState.js}
+
+  \item {\texttt{useEffect()}}: permette di eseguire una funzione dopo che un componente è stato renderizzato:
+  «[...] React ricorderà la funzione passata [...] e la invocherà dopo aver eseguito gli aggiornamenti del \gls{dom}»\cite{React_UsareHookEffect_Example}.\\
+  Quest'\textit{hook} accetta due argomenti: una funzione, ovvero ciò che deve essere ricordato ed eseguito, e un'\textit{array} di dipendenze\footnote{All'interno degli \textit{hooks}, le dipendenze (in inglese \textit{dependencies}\label{dependencies}) sono dei valori al variare di quali viene eseguita nuovamente una funzione.}.
+  Se non viene specificato un secondo argomento, l'\textit{hook} prevede che la funzione (qui anche chiamata “effetto”) venga eseguita sia dopo il primo \textit{rendering} che a ogni aggiornamento del componente.\\
+  % rivedere
+  Alcuni effetti potrebbero richiedere che venga effettuata della pulizia; passando un \textit{array} vuoto (\texttt{[]}) l'effetto viene eseguito e pulito una sola volta perché questo «[...] non dipende da alcun valore di oggetti di scena o di stato, quindi non ha bisogno di essere rieseguito»\cite{React_UsareHookEffect_Tip}.\\ 
+  Posizionando l'\texttt{useEffect()} all'interno di un componente, si garantice all'\textit{hook} l'accesso ad elementi come, ad esempio, stati o \textit{props} presenti nel componente stesso.\\ 
+  Nell'esempio del \autoref{biHooks_useEffect}, la funzione \texttt{console.log()} con argomento \texttt{example} viene eseguita ogni volta che avviene un cambiamento della dipendenza specificata, ovvero la variabile \texttt{example}.
+  
+  \lstinputlisting[caption=\textit{Built-in hook} \texttt{useEffect()}, label=biHooks_useEffect, language=JSX]{listings/capitolo4/React/hooks/biHooks_useEffect.js}
+  
+  \item {\texttt{useContext()}}: permette di gestire lo stato globalmente evitando il cosiddetto \textit{props drilling}, il passaggio di «[...] \textit{props} [...] a componenti annidati, attraverso componenti che non ne hanno bisogno»\cite{FreeCodeCamp_ReactContextBeginners}.\\
+  Quest'\textit{hook} accetta un solo argomento, l'oggetto contesto, ovvero il valore restituito dal metodo \texttt{createContext()}. L'unico valore restituito da \texttt{useContext()} è quello corrente del contesto; tale valore è determinato da quello assegnato alla \textit{prop} \texttt{value} del componente \texttt{<ExampleContext.Provider>}.\\ 
+  Nell'esempio del \autoref{biHooks_useContext}, alla variabile \texttt{example} viene associato il valore recuperato attraverso l'argomento \texttt{ExampleContext}, ovvero il valore della \textit{prop} \texttt{value}.
+  % \footnote{Poiché il valore della \textit{prop} \texttt{value} non è stato rappresentato, per un esempio più esaustivo si veda il seguente \url{https://it.reactjs.org/docs/hooks-reference.html#usecontext}.}. 
+
+  \lstinputlisting[caption=\textit{Built-in hook} \texttt{useContext()}, label=biHooks_useContext, language=JSX]{listings/capitolo4/React/hooks/biHooks_useContext.js}
+
+  \item {\texttt{useReducer()}}: permette di gestire una logica di stato personalizzata, per esempio, articolata in sotto valori, oppure in cui vi è un'influenza di uno stato su un altro; rappresenta «un'alternativa allo \texttt{useState()}»\cite{React_APIriferimentoHooks_useReducer}.\\
+  Quest'\textit{hook} accetta come argomenti un il riduttore, la cui sintassi è \texttt{(state, action) => newState}, ed uno stato iniziale\footnote{Lo stato iniziale, il secondo argomento, solitamente contiene un oggetto.}. I valori che \texttt{useReducer()} restituisce sono lo stato corrente ed un metodo di invio.\\
+  Nell'esempio del \autoref{biHooks_useReducer}, lo stato corrente è rappresentato dalla variabile di stato \texttt{example} ed il metodo di invio dalla funzione \texttt{dispatch()}. Il riduttore è invece rappresentato dalla funzione \texttt{reducer()} la quale opera sull'oggetto \texttt{initialExamples}.
+  
+  \lstinputlisting[caption=\textit{Built-in hook} \texttt{useReducer()}, label=biHooks_useReducer, language=JSX]{listings/capitolo4/React/hooks/biHooks_useReducer.js}
+  
+  \item {\texttt{useMemo()}}: permette di ritornare un valore memorizzato evitando che funzioni dispendiose a livello computazionale vengano eseguite ad ogni \textit{rendering} del componente; ottimizza le \textit{performance} generali.\\
+  Quest'\textit{hook} accetta come argomenti una funzione, ovvero ciò che potrebbe causare rallentamenti, e un'\textit{array} di dipendenze\footnote{Si veda la nota \ref{dependencies}.}.\\
+  Nell'esempio del \autoref{biHooks_useMemo}, la funzione \texttt{functionExample(a, b)} viene eseguita solamente quando avviene un cambiamento delle sue dipendenze, \texttt{a} e \texttt{b}, e il valore della dispendiosa computazione da essa effettuata viene assegnato alla variabile \texttt{example}.
+
+  \lstinputlisting[caption=\textit{Built-in hook} \texttt{useMemo()}, label=biHooks_useMemo, language=JSX]{listings/capitolo4/React/hooks/biHooks_useMemo.js}
+
+  \item {\texttt{useRef()}}: permette di archiviare un valore rendendolo persistente attraverso le renderizzazioni.\\
+  Quest'\textit{hook} accetta un solo argomento, un qualsiasi valore che consente di inizializzazzare la proprietà \texttt{.current}. Quest'ultima appartiene all'oggetto \texttt{ref}, l'unico valore restituito dallo \texttt{useRef()}, valore che persisterà durante l'intero ciclo di vita del componente.\\
+  Nell'esempio del \autoref{biHooks_useRef}, la proprietà \texttt{.current} dell'oggetto \texttt{modalExample} è inizializzata con la stringa \texttt{'example'}.
+  
+  \lstinputlisting[caption=\textit{Built-in hook} \texttt{useRef()}, label=biHooks_useRef, language=JSX]{listings/capitolo4/React/hooks/biHooks_useRef.js}
+\end{itemize}
+% integrare un poco gli hooks con le loro funzioni oltre la definizione iniziale data da React
+
+\subsubsection{\textit{Hooks} personalizzati}
+\label{subsubsec:Hooks personalizzati}
+Gli \textit{hooks} personalizzati (in inglese \textit{custom hooks}) realizzati per fornire una soluzione a problematiche specifiche utilizzati all'interno delle implementazioni oggetto dell'elaborato sono:
+
+\begin{itemize}
+  % rivedere il terzo parametro: init
+  \item {\texttt{useApi()}}: permette di effettuare una chiamata ad un'\acrshort{api}\footnote{Si veda la \autoref{subsubsec:API REST}} per il recupero di dati.\\
+  Quest'\textit{hook} accetta tre argomenti: la funzione che effettua la chiamata all'\acrshort{api}, dei parametri e un valore iniziale. I valori restituiti da \texttt{useApi()} ed utilizzati sono: un'\textit{array} di oggetti, delle informazioni sullo stato della chiamata effettuata, ed una funzione per aggiornare l'\textit{array} di oggetti reperendo di nuovo i dati.\\
+  La struttura interna dell'\textit{hook}\footnote{Rimando a nota che fornisce un esempio di utilizzo dell'useReducer().}, seppur includa anche lo \texttt{useState()} e lo \texttt{useEffect()}, è basata sul \textit{built-in hook} \texttt{useReducer()}.\\
+  Nell'esempio del \autoref{cHooks_useApi}, con l'utilizzo della funzione \texttt{getExamples()}, viene effettuata una chiamata ad un'\acrshort{api} e vengono recuperate le seguenti proprietà: i dati contenuti nell'\textit{array} \texttt{examples}, le informazioni di stato delle variabili \texttt{isLoading} ed \texttt{error}, e la funzione per l'aggiornamento dei dati \texttt{fetchExamples()}\footnote{Generalmente, la funzione per l'aggiornamento dei dati viene invocata una volta effettuata un'operazione, ad esempio, dopo l'aggiunta di un elemento utilizzando una finestra di dialogo.}.
+  
+  \lstinputlisting[caption=\textit{Cutom hook} \texttt{useApi()}, label=cHooks_useApi, language=JSX]{listings/capitolo4/React/hooks/cHooks_useApi.js}
+
+  \item {\texttt{useModal()}}: permette di reperire una serie di funzioni e variabili necessari al funzionamento delle finestre di dialogo (anche dette “modali”).\\
+  Quest'\textit{hook} accetta un solo argomento, un oggetto di opzioni per l'impostazione dei dati; i valori restituiti da \texttt{useModal()} ed utilizzati sono: le funzioni \texttt{open()} e \texttt{close()}, per l'apertura e la chiusura della modale, e gli stati \texttt{isOpen} e \texttt{data}, e il \textit{setter} \texttt{setData()} per la gestione dello stato di apertura della modale, e dei dati su cui essa operare.\\
+  La struttura interna dell'\textit{hook} si avvale dell'utilizzo del \textit{built-in hook} \texttt{useState()}.
+  Nell'esempio del \autoref{cHooks_useModal}, l'oggetto \texttt{modalExample} "importa", sottoforma di proprietà, tutti gli elementi discussi appena sopra attraverso l'uso dell'\textit{hook} \texttt{useModal}.
+  
+  \lstinputlisting[caption=\textit{Cutom hook} \texttt{useModal()}, label=cHooks_useModal, language=JSX]{listings/capitolo4/React/hooks/cHooks_useModal.js}
+
+  \item {\texttt{useValidation()}}: permette di effettuare delle validazioni.\\
+  Quest'\textit{hook} accetta solamente un argomento, l'oggetto \texttt{schema}, oggetto le cui proprietà specificano le caratteristiche dei valori che devono essere validati. I valori restituti da \texttt{useValidation()} e utilizzati sono delle funzioni che permettono di eseguire diversi tipi di validazioni.\\
+  La struttura interna dell'\textit{hook} si avvale dell'utilizzo del \textit{built-in hook} \texttt{useState()}.
+  Nell'esempio del \autoref{cHooks_useValidation}, viene effettuata la validazione dell'oggetto \texttt{schema}\footnote{L'\textit{hook} personalizzato \texttt{useValidation()}, effettuando validazioni sull'oggetto \texttt{schema}, è utilizzato in combinazione alla libreria \textit{Yup}, la quale verrà trattata nella \autoref{subsec:Yup}.} e vengono recuperate proprietà \texttt{validate}, \texttt{validationProps} e \texttt{validateField} per la validazione di valori specifici.
+  
+  \lstinputlisting[caption=\textit{Custom hook} \texttt{useValidation()}, label=cHooks_useValidation, language=JSX]{listings/capitolo4/React/hooks/cHooks_useValidation.js}
+  
+  \item {\texttt{useStatus()}}: permette di gestire lo stato all'interno della logica di una funzione \textit{event handler}.\\
+  Quest'\textit{hook} accetta un'argomento, uno stato iniziale che verrà utilizzato dal riduttore dello \texttt{useReducer()}, il \textit{built-in hook} alla base della struttura del \textit{custom} in analisi. I valori restituiti da \texttt{useStatus()} e utilizzati sono le funzioni \texttt{setLoading()}, \texttt{setSuccess()} e \texttt{setError()}, delle funzioni che gestiscono i casi in cui l'\textit{handler}, rispettivamente, sta venendo eseguito, è stato eseguito con esito positivo, ed è stato eseguito con esito negativo.\\
+  Nell'esempio del \autoref{cHooks_useStatus}, l'oggetto \texttt{statusExample} "importa", sottoforma di proprietà, gli elementi discussi appena sopra attraverso l'uso dell'\textit{hook} \texttt{useStatus()}.  
+  
+  \lstinputlisting[caption=\textit{Custom hook} \texttt{useStatus()}, label=cHooks_useStatus, language=JSX]{listings/capitolo4/React/hooks/cHooks_useStatus.js}
+\end{itemize}
+
+\section{Material UI}
+\acrlong{mui} (abbreviato in \acrshort{mui}) è una libreria per la creazione di interfacce utente che contiene diversi componenti React \textit{open-source} che implementano il \textit{Material Design} di Google.
+
+% quando nasce?
+L'obiettivo che la libreria si pone è quello di semplificare e velocizzare il lavoro degli sviluppatori \textit{front-end} nella realizzazione di esperienze utente intuitive, gradevoli e uniformi su tutti i tipi di dipositivi, mantendendo l'elevato standard qualitativo di \textit{Material Design}. Per raggiungere questo traguardo, \acrlong{mui} mette a disposizione dello sviluppatore una grande varietà di componenti già realizzati, i quali possono essere implementati all'interno di un progetto immediatamente.
+% diffusione
+
+Le principali caratteristiche che hanno determinato il successo di questa libreria sono:
+\begin{itemize}
+  \item \textbf{Semplicità:} \acrshort{mui} offre un'esperienza di sviluppo intuitiva, capace di facilitare l'approccio agli sviluppatori inesperti da un lato, e di contribuire positivamente alla coesione generale del team dall'altro;
+  
+  \item \textbf{Affidabilità:} \acrshort{mui} rappresenta la libreria per lo sviluppo di \acrshort{ui} pensate appositamente per React con la più grande community. La sua presenza "in scena" a partire dalla comparsa di React stesso e il grande numero di persone, fra cui anche il team di designer e di sviluppatori di Google, che si occupano del suo mantenimento quotidianamente sono i fattori le conferiscono una grande affidabilità. \acrlong{mui} è utilizzato da numerose aziende di tutto il mondo;
+  
+  \item \textbf{Velocità:} data la vastità della community che si è dedicata alla cura dei componenti della libreria, utilizzando \acrshort{mui}, un team è in grado di focalizzarsi maggiormente sul funzionamenro dell'applicativo in sviluppo, quasi dimenticandosi dell'interfaccia grafica. La \acrshort{ui}, potenzialmente, può essere "presa a carico" per intero da \acrlong{mui} riducendo estremamente i tempi di realizzazione di un applicativo;
+  
+  \item \textbf{Estetica:} implementando fedelmente \textit{Material Design}, \acrshort{mui} è sia dotato di un'estetica gradevole, che di componenti ottimamente progettati in termini di forma e di funzione. Nonostante ciò, la libreria è in grado di discostarsi da \textit{Material Design} ogni qualvolta sia necessario fornire più soluzioni;
+  
+  \item \textbf{Personalizzazione:} \acrshort{mui} è personalizzabile in modo intuitivo; sul sito ufficiale della libreria sono mostrati vari \textit{template} che illustrano quanto la libreria possa essere customizzata.
+\end{itemize}
+
+\subsection{Material Design}
+In quanto libreria, \acrlong{mui} permette di costruire interfacce utente di estrema qualità perché basata su \textit{Material Design}, il \textit{design system} realizzato e mantenuto da Google nato per l'implementazione di porzioni di interfacce utente su sistemi operativi, come \textit{Android} e \textit{Flutter}, e su web. Ciò rende \acrshort{mui} veicolo di un linguaggio grafico diffuso in maniera capillare e conosciuto in tutto il mondo.
+
+\textit{Material Design} è stato annunciato da Google nel 2014 con l'intenzione di uniformare l'esperienza utente di tutti i prodotti offerti dalla \textit{software house}, e di dar vita a uno strumento visivo rivoluzionario, dotato di una proposta stilistica più concreta e materiale. Il termine \textit{“Material”}, infatti, altro non è che una metafora riferita alla più peculiare caratteristica di questo \textit{design system}, ovvero quella di ispirarsi a veri materiali presenti nel mondo reale e alle loro proprietà fisiche. In sostanza, ognuno dei suoi elementi grafici, «[...] dovrebbe essere trattato come un oggetto fisico con una fisicità propria»\cite{Mew_LearningMaterialDesign}.\\ 
+M. Duarte, \acrshort{ui} designer nonché vice presidente del reparto \textit{design} di Google, affermò che:
+\begin{quote}
+  «A differenza della carta reale, il nostro materiale digitale può espandersi e riformarsi in modo intelligente. \textit{Material Design} è dotato di superfici fisiche e bordi. Cuciture e ombre conferiscono significato a ciò che stai toccando».
+\end{quote}
+All'intero delle interfacce grafiche realizzate con \textit{Material Design}, di primaria importanza è la terza dimensione, l'elemento che permette all'utente di percepire profondità e struttura dei componenti, e di star interagendo con qualcosa di tangibile.
+
+\subsection{Componenti}
+Quando si parla di sviluppo di applicazioni web e mobile, \acrlong{mui} rappresenta un punto di riferimento in virtù della sua semplicità d'utilizzo. 
+
+La libreria adotta un approccio modulare fornendo una vasta gamma di componenti, delle porzioni di interfaccia grafica riutilizzabili, retrocompatibili e personalizzabili, già sviluppate e mantenute, facili da integrare all'interno di un progetto esistente e disponibili fin da subito.\\
+I componenti di \acrshort{mui} sono raggruppati in categorie a seconda della funzione che assolvono; mantenendo l'ordine della documentazione ufficiale, di seguito ne verrà offerta una panoramica, e saranno analizzati i componenti e le loro \textit{props} assegnategli\footnote{Poiché alcune \textit{props} hanno il medesimo funzionamento in diversi componenti, la spiegazione della loro funzione viene fornita solamente la prima volta che ci si imbatte in esse.} all'interno delle implementazioni.
+\begin{itemize}
+  \item \textbf{\textit{Inputs:}} consentono all'utente di effettuare azioni o di compiere scelte all'interno di una gamma di opzioni.\\
+  Componenti usati:  
+    \begin{itemize}
+      % \item \texttt{Autocomplete}: permette la creazione di caselle di testo dotate di un pannello di opzioni fra le quali all'utente è consentito scegliere;
+      
+      \item \texttt{Button} e \texttt{IconButton}: permettono la creazione di bottoni che consentono all'utente di effettuare delle scelte. Mentre \texttt{Button} può contenere (fra i tag di apertura e chiusura) solamente del testo, \texttt{IconButton} è in grado di contenere anche un'icona.\\
+      \textit{Props} utilizzate: \texttt{size} (stabilisce la dimensione del componente, ad esempio, \texttt{small}), \texttt{startIcon} (permette di associare un'icona anche al componente \texttt{Button});
+
+      \item \texttt{Checkbox}: permette la creazione di caselle di controllo che consentono all'utente di  selezionare uno o più elementi (da una serie), oppure spuntare un'opzione come attiva o disattiva.\\
+      \textit{Props} utilizzate: \texttt{checked} (stabilisce se il componente è \textit{flaggato}) e \texttt{onChange} (stabilisce la funzione eseguita quando lo stato valore cambia);
+      
+      \item \texttt{FormGroup}: permette la creazione di caselle di controllo con una struttura personalizzata, ad esempio, attraverso il componente \texttt{FormControlLabel}.\\
+      \textit{Props} utilizzate: \texttt{control} (stabilisce il componente di controllo, ad esempio, \texttt{CheckBox}) e \texttt{label} (definisce l'etichetta, ciò che viene visualizzato all'apice del componente una volta posizionato il cursore sul testo) con \texttt{FormControlLabel};
+      
+      \item \texttt{TextField}: permette la creazione di caselle di testo che consentono all'utente di manipolare (inserire o modificare) del testo.\\ 
+      \textit{Props} utilizzate: \texttt{fullWidth} (stabilisce che il componente occupi tutto il \texttt{div} dal quale è contenuto in larghezza), \texttt{size}, \texttt{variant} (definisce lo stile del componente, ad esempio, \texttt{filled}), \texttt{label}, \texttt{placeholder} (definisce il segnaposto, ciò che viene visualizzato all'interno del componente quando il cursore non è ancora posizionato e il valore non è presente), \texttt{value} (definisce il valore del testo del componente), \texttt{onChange} e \texttt{InputProps} (definisce le \textit{props} passate al componente \texttt{Input});
+    \end{itemize}
+
+  \item \textbf{\textit{Data display:}} consentono all'utente di visualizzare dati e/o informazioni strutturate, dotate di organizzazione e formattazione.\\
+  Componenti usati:
+    \begin{itemize}
+      \item \texttt{Divider}: permette la creazione di sottili linee per il raggruppamento di elementi; funziona come il tag \texttt{<hr>} in \gls{html};
+      
+      \item \textit{Material Icons}: permettono di arricchire l'esperienza utente inserendo icone che illustrino altri componenti, suggerendo ed esemplificando le loro funzioni all'utente. \texttt{AddIcon, EditIcon} e \texttt{DeleteIcon}, ad esempio, sono alcune fra le principali implementate fra le innumerevoli messe a disposizione direttamente dal sito ufficiale di Material Icons.\\
+      \textit{Props} utilizzate: \texttt{fontSize} (stabilisce la dimensione del componente, ad esempio, \texttt{inherit});
+
+      \item \texttt{Table}: permette la creazione di tabelle per la visualizzazione di dati. La struttura di una tabella viene realizzata attraverso una gerarchia di specifici componenti\footnote{La creazione di una tabella prevede che venga rispettata una specifica gerarchia di tag anche in \gls{html}. \label{strutturaGerarchicaHTML}} come, ad esempio, \texttt{TableContainer, TableHead, TableBody, TableRow} e \texttt{TableCell}.\\
+      \textit{Props} utilizzate: \texttt{size} con \texttt{Table}, \texttt{component} (stabilisce il componente usato per il nodo radice) con \texttt{TableContainer}, e \texttt{align} (stabilisce l'allineamento del componente, ad esempio, \texttt{right}) e \texttt{colSpan} (stabilisce quante colonne una cella deve coprire) con \texttt{TableCell};
+      
+      \item \texttt{Typography}: permette il \textit{rendering} di testi statici.\\
+      \textit{Props} utilizzate: \texttt{variant} (definisce il \textit{font} del componente, ad esempio, \texttt{title1}...) e \texttt{size};
+
+      \item \texttt{FormHelperText}: permette la creazione di messaggi di suggerimento che suggeriscono all'utente come svolgere un'azione;
+    \end{itemize}
+
+  \item \textbf{\textit{Feedback:}} consentono all'utente di ricevere un ricoscontro, ad esempio, a seguito di un'interazione con un componente di tipo \textit{input}.\\
+  Componenti usati:
+    \begin{itemize}
+      \item \texttt{Alert}: permette la creazione di brevi messaggi informativi per l'utente;
+
+      \item \texttt{Dialog}: permette la creazione di finestre di dialogo (anche dette modali) che informano l'utente su un compito particolare: queste possono contenere informazioni critiche, richiedere decisioni o coinvolgere più compiti. Anche la struttura di una finestra di dialogo viene realizzata attraverso una gerarchia di specifici componenti\footnote{Si veda nota \ref{strutturaGerarchicaHTML}.} come, ad esempio, \texttt{DialogTitle}, \texttt{DialogActions} e \texttt{DialogContent}.\\
+      \textit{Props} utilizzate: \texttt{open} (quando il suo valore è \texttt{true}, stabilisce che il componente deve essere mostrato), \texttt{onClose} (stabilisce la funzione eseguita quando il componente deve essere chiuso), \texttt{scroll} (stabilisce il contenitore per effettuare lo \textit{scrolling} del componente), \texttt{fullWidth} e \texttt{maxWidth} (stabilisce la larghezza massima del componente) con \texttt{Dialog};
+    \end{itemize}
+
+  \item \textbf{\textit{Surfaces:}} offrono superfici su cui visualizzare dati e/o informazioni, come, ad esempio, quelle strutturate grazie ai componenti di tipo \textit{data display}.\\
+  Componenti usati:
+    \begin{itemize}
+      \item \texttt{Card}: permette la creazione di “perimetri” tematici dotati di contenuti e di azioni; questi consentono all'utente di comprendere rapidamente la strutturazione di più alto livello degli elementi. Analogamente a quanto visto per \texttt{Table} e \texttt{Dialog}, anche nel caso del componente \texttt{Card} è prevista una struttura gerarchica di componenti\footnote{Si veda nota \ref{strutturaGerarchicaHTML}.} come, ad esempio, \texttt{CardHeader, CardAction, CardContent} e \texttt{CardMedia}.\\
+      \textit{Props} utilizzate: \texttt{subheader} (definisce il sottotitolo) e \texttt{action} (definisce le azioni che possono essere svolte) con \texttt{CardHeader}, e \texttt{component} (stabilisce il componente usato per il nodo radice) e \texttt{image} (stabilisce l'immagine da visualizzare) con \texttt{CardMedia};
+      
+      \item \texttt{Paper}: permette la creazione di componenti che riproducono l'effetto della carta;
+    \end{itemize}
+
+  \item \textbf{\textit{Navigation:}} consentono all'utente di navigare agevolmente, offrendo punti di riferimento e scorciatoie;
+
+  \item \textbf{\textit{Layout:}} consentono all'utente di visualizzare i dati e/o le informazioni strutturate in modo coerente e ordinato all'interno della pagina.\\
+  Componenti usati:
+    \begin{itemize}
+      \item \texttt{Box}: permette la creazione di elementi “container” per la gestione del \gls{css};
+
+      \item \texttt{Grid}: permette la creazione di una griglia per l'organizzazione dei contenuti.\\
+      \textit{Props} utilizzate: \texttt{container} (stabilisce che il componente ha lo stesso comportamento di un contenitore a cui è attribuita la proprietà \texttt{flex}), \texttt{spacing} (stabilisce la spaziatura fra i diversi componenti di tipo \texttt{item}; funziona solamente componenti di tipo \texttt{container}), \texttt{item} (stabilisce che il componente è di tipo \texttt{item}, quindi figlio del componente di tipo \texttt{container}), \texttt{xs/md/lg} (quando il loro valore è un numero\footnote{Il valore numerico associato alle \textit{prop} \texttt{xs/md/lg} non può mai essere superiore a \texttt{12}, ovvero il numero totale di colonne presenti all'interno di un contenitore.}, stabilisce la spaziatura fra i componenti di tipo \texttt{item}; a seconda di quale delle tre \textit{props} viene fornita, il valore numerico viene applicato ai \textit{breakpoint} \texttt{xs}, \texttt{md} o \texttt{lg});
+    \end{itemize}
+
+  \item \textbf{\textit{Utils:}} offrono allo sviluppatore delle soluzioni semplici ed efficaci per la modellazione dell'interfaccia.
+  Componenti usati:
+  \begin{itemize}
+    \item \texttt{Collapse}: fa parte delle transazioni e consente di espandere un componente.\\
+    \textit{Props} utilizzate: \texttt{in} (stabilisce l'espansione o la chiusura) e \texttt{timeout} (stabilisce la durata della transazione);
+  \end{itemize}
+
+  \item \textbf{\textit{MUI X:}} offrono allo sviluppatore una serie di componenti avanzati per la modellazione di casistiche più complesse e specifiche.\\
+  Componenti usati:
+  \begin{itemize}
+    \item \texttt{DatePicker}: permette la creazione di un campo all'interno del quale l'utente può selezionare un valore fra quelli forniti in modo predefinito, in questo caso una data.\\
+    \textit{Props} utilizzate: \texttt{label}, \texttt{value}, \texttt{onChange} e \texttt{renderInput} (stabilisce come personalizzare il campo di immissione specificando le \textit{props} del componente \texttt{TextField} che devono essere passate).
+  \end{itemize}
+\end{itemize}
+  
+\section{Altre librerie}
+Il progetto oggetto dell'elaborato ha visto anche il coinvolgimento di una serie di librerie "secondarie" adibite all'implementazione di funzionalità e alla gestione di problemi specifici. Quelle utilizzate nel corso delle implementazioni sono tratte di seguito.
+
+\subsection{Dialogo client-server}
+\label{subsec:Dialogo client-server}
+La gestione delle dinamiche relative allo scambio bidirezionale di dati all'interno del binomio client-server rappresenta una tematica che riveste un ruolo di vitale importanza per ciò che concerne il funzionamento di un applicativo. Infatti, il compito del server non è unicamente quello di ospitare la \acrshort{ui} per inviarla al browser ogni volta che viene richiesta una pagina lato client, ma anche di archiviare i dati necessari affinché l’applicativo funzioni in modo corretto.\\
+Il passaggio di informazioni fra client e server avviene attraverso richieste effettuate da \gls{api} all'interagire dell'utente, lato client, con specifiche porzioni dell'interfaccia grafica dell'applicativo (ad esempio, quando viene effettuato un click su un bottone).
+
+\subsubsection{API REST}
+\label{subsubsec:API REST}
+Al centro dello scambio di informazioni vi è l'\gls{api}, l'interfaccia di programmazione delle applicazioni, elemento definito come:
+\begin{quote}
+  «[...] un insieme di definizioni e protocolli con i quali vengono realizzati e integrati \textit{software} applicativi»\cite{RedHat_API}.
+\end{quote}
+In generale, le \gls{api} consentono a un applicativo di relazionarsi con l'esterno, interfacciandosi con altri applicativi, dispositivi o servizi.
+
+L'applicativo oggetto dell'elaborato opera con le \gls{api} \acrshort{rest} (anche dette API RESTful), le quali prendono il nome dallo stile architetturale che implementano, ovvero \acrfull{rest}.\\
+Le \gls{api} \acrshort{rest} sono state definite per la prima volta nella tesi di dottorato di Roy Fielding, e si sono distinte fin da subito per il grande livello di flessibilità che sono state in grado di offrire agli sviluppatori, specialmente se comparate con altri tipi di \gls{api}, come, ad esempio, quelle \acrfull{soap}. Il loro successo e la loro grande diffusione sono da attribuire all'assenza di vincoli sia rispetto al linguaggio di programmazione usato e al formato di dati accettato, sia alla loro architettura fondata su «[...] sei linee guida che sono risultate più semplici da seguire rispetto a un protocollo prescritto»\cite{RedHat_VantaggiAPI}; 
+
+Le \gls{api} \acrshort{rest} si avvalgono di richieste \gls{http} per lo scambio di informazioni; attraverso esse sono in grado di eseguire le operazioni \acrfull{crud} su una risorsa:
+\begin{itemize}
+  \item \texttt{GET}: permette di recuperare dei dati\footnote{Nella maggior parte dei casi, si tratta di \textit{array} di oggetti.};
+  \item \texttt{POST}: permette di inviare dei dati;
+  \item \texttt{PUT}: permette di modificare dei dati;
+  \item \texttt{DELETE}: permette di eliminare dei dati.
+\end{itemize}
+Le funzioni asincrone che implementano i quattro tipi di chiamata \gls{http} sono illustrate nel \autoref{apiRest_richiesteHTTP}. Ognuna di esse è dotata degli argomenti \texttt{url}, \texttt{body} e \texttt{option}, tranne quella relativa al metodo \texttt{GET}, la quale, non occupandosi della manipolazione di dati, non necessita dell'argomento \texttt{body}. Tutte quante, inoltre, contengono al loro interno la funzione \texttt{request()}, funzione che concretamente si occupa di eseguire le richiste \gls{http} attraverso la libreria \texttt{Axios}, e che verrà analizzata nella \autoref{subsubsec:Axios}, la seguente.
+
+\lstinputlisting[caption=Funzioni \texttt{get(), post(), put()} e \texttt{delete()}, label=apiRest_richiesteHTTP, language=JSX]{listings/capitolo4/React/dialogoClientServer/apiRest_richiesteHTTP.js}
+
+\subsubsection{Axios}
+\label{subsubsec:Axios}
+La gestione delle richieste \gls{http} in React è molto comunemente effettuata attraverso la libreria \textit{Axios}, strumento definito dalla documentazione ufficiale come «[...] client \gls{http} basato su \textit{promise} per node.js e il browser»\cite{Axios_GettingStarted}.\\ La sua caratteristica principale è l'isomorfismo: \texttt{Axios} è in grado di funzionare sia lato client, nel browser, che lato server, in un caso effettuando delle richieste \textit{XMLHttpRequests}, nell'altro con il modulo nativo \texttt{http} di node.js.
+
+L'\gls{api} di \textit{Axios} mette a disposizione una grande varietà di metodi per effettuare richieste \gls{http} di vario tipo, ad esempio, \texttt{axios.request(config)}, \texttt{
+axios.get(url[, config])}, \texttt{
+axios.delete(url[, config])} etc...\\
+All'interno del progettoo oggetto dell'elaborato, l'unico utilizzato è \texttt{axios()}, funzione che accetta un solo argomento, un oggetto \texttt{config} che contiene tutte le specifiche relative alla richiesta da effettuare. I valori ritornati dal metodo sono le proprietà contenute dall'oggetto \texttt{config}.
+
+Come possibile vedere nel \autoref{axios_request}, sia il metodo \texttt{axios()} che l'oggetto \texttt{config} sono contenuti all'interno della funzione freccia asincrona \texttt{request()} dichiarata a riga 1. Gli argomenti accettati sono \texttt{method}, \texttt{path}, \texttt{body} e \texttt{...options = \{\}}.\\
+La funzione \texttt{axios()}, illustrata a riga 15, è assegnata alla variabile \texttt{response}: l'oggetto \texttt{config} che gli viene passato come argomento contiene le proprietà mostrate da riga da riga 7 a 13, ovvero \texttt{url}, \texttt{method}, \texttt{headers}, \texttt{data: body} e \texttt{...options}\footnote{Alcune delle proprietà che compongono l'oggetto \texttt{config} provengono dagli argomenti passati alla funzione \texttt{request}, altre sono dichiarate come variabili all'interno del corpo della funzione stessa.}.
+
+\lstinputlisting[caption=Variabile \texttt{request} e utilizzo di \texttt{axios(config)}, label=axios_request, language=JSX]{listings/capitolo4/React/dialogoClientServer/axios_request.js}
+
+\subsection{\textit{React Router}}
+La gestione della navigazione attraverso le differenti pagine che formano l'applicativo costituisce un altro argomento di grande rilievo in fase di sviluppo. Il principale pro delle \acrshort{spa}\footnote{Si veda la \autoref{subsec:Tipologie}}, ovvero la loro capacità di eseguire tutto il codice della piattaforma all'interno della medesima pagina, rappresenta un potenziale problema. Infatti, poiché la tradizionale navigazione ha abituato a muoversi su più pagine, nell'approcciarsi a una \acrshort{spa}, gli utenti potrebbero sentirsi privati di una serie “punti di riferimento” che forniscono informazioni sulla posizione all'interno di un sito\footnote{Fra queste informazioni vi sono, ad esempio, la pagina visitata e la profondità a cui essa si trova all'interno della gerarchia del sito.}.
+
+Poiché il meccanismo di navigazione predefinito dei browser non c'è, all'interno delle \acrshort{spa} realizzate con React, la gestione degli \gls{url} avviene manualmente attraverso l'implementazione del \textit{routing}. Solitamente, questa dinamica viene realizzata grazie alla libreria \textit{React Router}, la quale fornisce «[...] un insieme di componenti di navigazione che si compongono in modo dichiarativo[...]»\cite{Remix_ReactRouter} con quelli del progetto in cui vengono integrati.
+
+I componenti che permettono di realizzare il \textit{routing} sono:
+\begin{itemize}
+  \item \texttt{Router}: contiene il componente responsabile del \textit{rendering} dell'applicazione stessa;
+  
+  \item \texttt{Switch}: contiene i componenti che appartengono allo stesso \gls{url}, ad esempio, gli elementi \texttt{Route}\footnote{Per un corretto funzionamento del \textit{routing}, i componenti \texttt{Route} devono essere inseriti dal più specifico al più generico.};
+  
+  \item \texttt{Route}: contiene i componenti delle singole pagine.
+  \textit{Props} utilizzate: \texttt{path} (stabilisce la stringa che deve essere aggiunta all'\gls{url});
+
+  \item \texttt{Link}: permette all'utente di navigare su una pagina effettuando un click.
+\end{itemize}
+
+La libreria mette a disposizione dello sviluppatore anche una serie di \textit{hooks} utili per facilitare la gestione della navigazione, come, ad esempio, \texttt{useHistory()} (fornisce l'accesso alla cronologia), \texttt{useLocation()} (restituisce un oggetto contenente l'\gls{url} attuale) e \texttt{useParams()} (restituisce un oggetto di coppie chiave/valore dei parametri \gls{url}).
+
+\subsection{\textit{Yup}} 
+\label{subsec:Yup}
+\textit{Yup} è una libreria per l'analisi e la validazione di valori in JavaScript. La documentazione ufficiale riferisce che è possibile «[...] definire uno schema, trasformare un valore per farlo corrispondere, convalidare la forma di un valore esistente o entrambe le cose»\cite{jquense_Yup}.\\
+Il funzionamento di \textit{Yup} prevede la dichiarazione di un oggetto \texttt{schema}\footnote{L'oggetto \texttt{schema} viene utilizzato per effettuare delle validazioni grazie all'utilizzo dell'\textit{hook} personalizzato \texttt{useValidation()}. Si veda il relativo paragrafo all'interno della \autoref{subsubsec:Hooks personalizzati}.} all'interno del quale, attraverso i metodi forniti, vengono elencati dettagliatamente i vincoli specifici che devono essere rispettati da ogni valore. Ciò è necessario per una loro efficace analisi o validazione.
+Inoltre, gli schemi realizzati con \textit{Yup} sono intuitivi e permettono di modellare oggetti di tutti i livelli di complessità.
+
+Nell'esempio del \autoref{yup_schema}, come mostrato da riga 2 a 5, le proprietà dell'oggetto \texttt{schema} sono \texttt{example1}, \texttt{example2}, \texttt{example3} ed \texttt{example4}. Le caratteristiche che i loro valori devono rispettare sono, rispettivamente, essere una stringa obbligatoria; essere un valore booleano; essere un'\textit{array} obbligatorio che contiene almeno un elemento, e in caso contrario restituire un suggerimento; essere una data e restituire un messaggio di errore quando ne viene commesso uno.
+
+\lstinputlisting[caption=Oggetto \texttt{schema}, label=yup_schema, language=JSX]{listings/capitolo4/altreLibrerie/yup_schema.js}
+
+\subsection{\textit{date-fns}}
+\label{subsec:date-fns}
+\textit{date-fns} è una libreria per la manipolazione di date in JavaScript (sia lato client, nel browser, che lato server, operando con Node.js) che fornisce un'ampia gamma di strumenti, rimanendo però semplice e consistente.\\
+Alcuni dei pregi che la rendono apprezzata dagli sviluppatori sono la modularità (è possibile utilizzare solamente l'esatta funzione di cui si ha bisogno), la velocità (è piccola e veloce) e il supporto (è ben documentata)\cite{date-fns}.
+
+Nell'esempio riportato dal \autoref{date-fns_format}, la variabile \texttt{example} contiene come valore quello della variabile \texttt{exampleData}, ma formattato attraverso il metodo \texttt{format()} secondo il formato giorno/mese/anno. 
+
+\lstinputlisting[caption=Metodo \texttt{format()}, label=date-fns_format, language=JSX]{listings/capitolo4/altreLibrerie/date-fns_format.js}
+
+\subsection{\textit{mui-rte}}
+\textit{mui-rte} è una libreria che fornisce al contempo un «[...] editor e un visualizzatore di testo completo per MUI [...]»\cite{niuware_mui-rte}. Nonostante sia integrabile fin da subito all'interno di un progetto, lo strumento fornisce agli sviluppatori un ampio margine di personalizzazione, ad esempio, modificando stili, strategie di autocompletamento, decoratori, barra degli strumenti e il tema.
+
+Nell'esempio riportato dal \autoref{mui-rte_MUIRichTextEditor}, poiché contenuto dall'elemento \texttt{Paper}, il componente \texttt{MUIRichTextEditor} “posa” su una superficie di tipo cartaceo; la sua etichetta interna è il valore dell'unica \textit{prop} fornitagli, \texttt{label}, ovvero la stringa \texttt{'Example...'}. 
+
+\lstinputlisting[caption=Componente \texttt{MUIRichTextEditor}, label=mui-rte_MUIRichTextEditor, language=JSX]{listings/capitolo4/altreLibrerie/mui-rte_MUIRichTextEditor.js}
+
+% \item react-router: la libreria React Router permette di renderizzare pagine diverse senza ricaricare la pagina. client-side rendering
+  % pezzo del flusso di sviluppo standard
+
+% \section{AWS (\textit{Amazon Web Services})}
+% Servizio di archiviazione in cloud della piattaforma in sviluppo.
+
+% \section{Git}
+% \label{subsec:Git}
+% Sistema di controllo della versione (in inglese, \textit{versioning control}) utilizzato per l'amministrazione dei file.
+
+% \begin{itemize}
+%   \item git clone
+%   \item git pull
+%   \item git status
+%   \item git add .
+%   \item git commit -m ""
+%   \item git commit -a -m ""
+%   \item git push
+%   \item git merge
+%   \item git branch
+%   \item git checkout esempio/esempio
+% \end{itemize}

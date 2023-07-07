@@ -1,0 +1,93 @@
+\selectlanguage{italian}
+
+\chapter{Applicazioni web}
+Il secondo capitolo ha lo scopo di fornire una descrizione delle qualità che caratterizzano il progetto oggetto dell'elaborato. Per farlo va a trattare una serie di nozioni teoriche che consentono di giustificare le scelte strutturali a corredo dell'applicativo. A tal fine, il capitolo offre una rapida introduzione sulle applicazioni web, per poi esporre dei dettagli in merito alla loro storia, alle loro peculiarità architetturali, e alle loro tipologie esistenti.
+
+\section{Principi generali}
+\label{sec:Principi generali}
+Con l'espressione “applicazione web” (in inglese \textit{Web application}, abbreviato in \textit{Web app}) si fa riferimento a un \textit{software} archiviato su un server, eseguito all'interno di un browser, che mette a disposizione dell'utente una serie di funzionalità interattive simili a quelle di un'applicazione nativa o desktop. 
+
+La natura delle web app è implicitamente multipiattaforma. Diversamente dalle applicazioni native e desktop, quelle web sono caratterizzate dall'assenza di un legame forte con il sistema operativo: infatti, esse non necessitano di essere installate, e le uniche condizioni necessarie e sufficienti affinché queste possano essere utilizzate sono la disponibilità di un browser in grado di supportarle\footnote{Tutti i browser moderni sono in grado di supportare l'esecuzione di applicazioni web.} e la connessione a un network, richiesta nella maggioranza dei casi\footnote{Seppur le web app necessitino quasi sempre di una connessione internet, alcune di esse possono essere eseguite grazie alla rete intranet aziendale, o addirittura offline.}. Quindi, le web app possono funzionare a prescindere dal dispositivo in uso, indipendentemente dal fatto che si tratti di uno smartphone, di un tablet o di un desktop.\\
+Le applicazioni web, a differenza di quelle native e desktop, sono più sicure e riducono la possibilità di incappare in bug. Esse non richiedono aggiornamenti manuali la cui mancata esecuzione potrebbe esporre a potenziali falle; quando si accede a esse si ha automaticamente a disposizione la loro versione più sicura e/o aggiornata.\\
+In aggiunta, essendo svincolate dal sistema operativo in uso, le web app non devono essere programmate più volte in diversi linguaggi e ciò si traduce sia in una maggior rapidità di sviluppo, che nella necessità di meno programmatori e competenze.\\
+Inoltre, le applicazioni web propongono una serie di funzionalità circoscritte a un determinato ambito incastonate in una \gls{ux} più ricca e dinamica, la quale, pur rimanendo inferiore se comparata a quella delle applicazioni native\footnote{Il livello di interattività offerto dalle web app è inferiore a quello delle applicazioni native poiché le prime, contrariamente delle seconde, non potendo essere cucite su misura all'\textit{hardware}, non riescono a sfruttare a pieno le funzionalità del dispositivo in uso. Inoltre, se paragonata a quella delle applicazioni native, l'esperienza utente delle applicazioni web è inferiore soprattutto in termini di \textit{performance}.}, offre una maggior possibilità di interazione rispetto a quella che caratterizza i siti web.\\
+Poiché non si rassegnano all'essere un qualcosa di meramente statico-informativo, le web app sono presto divenute molto popolari, ed è realistico credere che, in un futuro non troppo lontano, esse contribuiranno all'affermazione di un web ancor più dinamico e interattivo.\\
+Alcune fra le applicazioni web più famose ad oggi accessibili sono: \textit{Facebook}, \textit{Instagram}, \textit{Twitter}, \textit{Linkedin}, \textit{Amazon}, \textit{e-Bay}, \textit{Gmail}, \textit{Outlook}, \textit{Google Drive}, \textit{Microsoft Office 365}, \textit{Slack}, \textit{Paypal}, \textit{Google Maps}, \textit{Netflix}, \textit{Amazon Prime Video}, etc...
+
+In definitiva, le web app si contraddistinguono per il loro essere \textit{user-friendly} per l'utente, per gli sviluppatori e per l'azienda responsabile della loro realizzazione; a differenza delle applicazioni native e desktop, le web app sono più accessibili, flessibili e sicure, e il loro sviluppo richiede meno tempo e risorse economiche.
+
+\section{Cenni storici}
+La storia delle applicazioni web coincide con quella del \gls{www} (anche conosciuto più semplicemente come \textit{Web}) e ha inizio nel 1980, quando l'informatico britannico Tim Berners-Lee, presso il \acrshort{cern} (acronimo del francese \acrlong{cern}), si mise all'opera per la creazione di uno strumento che permettesse la «[...] condivisione automatizzata delle informazioni tra gli scienziati delle università e degli istituti di tutto il mondo»\cite{CERN_ShortHistoryWeb}. Nel 1989 venne pubblicato uno studio che descriveva un «[...] “progetto ipertestuale” chiamato “WorldWideWeb” in cui una “ragnatela” di “documenti ipertestuali” poteva essere visualizzata da “browser”»\cite{CERN_ShortHistoryWeb}. L'intuizione rivoluzionaria fu quella di utilizzare un applicativo lato client (il browser web) per reperire contenuti di natura ipertestuale, interconnessi fra loro attraverso link e raggiungibili grazie a internet, immagazzinati in un \textit{software} lato server. Quello stesso anno, inoltre, iniziarono i lavori di sviluppo degli applicativi, i quali vennero affiancati da quelli di definizione di nuovi standard e protocolli per la condivisione di contenuti, ovvero l'\gls{html} e l'\gls{http}. Lo sviluppo del \textit{software} del primo server e del primo browser venne completato l'anno successivo, nel 1990, data in cui venne pubblicata anche la primissima pagina web. Seppur essa fosse inizialmente visibile solamente ai membri interni del \acrshort{cern}, da quel giorno, l'espansione del Web non ebbe più fine: infatti, prima, nel 1991, venne messo a disposizione dell'intera comunità scientifica, e poi, a partire dal 1993, del mondo intero.
+% the Myst, TCP/IP
+
+A pari passo con l'evoluzione tecnologica e informatica, negli ultimi 30 anni il Web è cambiato notevolmente, e le sue declinazioni affermatesi nel corso del tempo sono state caratterizzate da un costante aumento dell'interattività e della connettività offerta:
+\begin{itemize}
+  \item \textbf{Web 1.0} (1990/93 - 2000 ca.): il primo paradigma, anche detto Web statico, o \textit{read-only Web}, è dotato di una natura prettamente statico-informativa e contenutistica. Le pagine, costituite da puro \gls{html}, e, all'occasione, da qualche sprazzo di \gls{css}, non offrono alcuna possibilità d'interazione. Il Web 1.0 è unidirezionale: l'utente può solo consultare passivamente i contenuti “pre-inscatolati” dalla ristretta schiera di persone che conoscono gli strumenti per la manipolazione delle pagine web. Tipici di questo stadio del Web sono i siti di informazioni e notizie, i primi e-commerce e le piattaforme per lo scambio di e-mail;
+  
+  \item \textbf{Web 2.0} (2000 - 2006 ca.): il secondo paradigma, anche detto Web dinamico, o \textit{read-write Web}, è dotato di una natura decisamente più dinamica e partecipativa rispetto al predecessore. Le pagine, arricchite con il linguaggio di scripting JavaScript, offrono la possibilità d'interagire con esse, ad esempio, condividendo risorse; altre tecnologie risalenti a questo periodo determinanti per l'evoluzione dell'interattività sono \gls{flash} e \gls{ajax}. Il Web 2.0 è bidirezionale: l'utente può sia fruire di contenuti, che produrre attivamente i suoi per condividerli con altre persone. Tipici di questo stadio del Web sono i blog, i forum e i social network;
+  
+  \item \textbf{Web 3.0} (2006 - oggi): il terzo paradigma, anche detto Web semantico, o \textit{read-write-execute Web}, è dotato di una natura semantica incentrata sui dati. Le pagine, elaborate in modo più raffinato dai motori di ricerca, sono a disposizione dell'utente in maniera più precisa grazie a interrogazioni meno complesse. Le tecnologie impiegate, per la maggior parte evoluzione di quelle inventate in passato (ad esempio, l'\gls{html}5), permettono al programma di “comprendere” le risorse presenti in rete attraverso la trattazione automatica di metadati. Il Web 3.0 è caratterizzato anche dall'uso dell'\gls{ia}, dei potenti algoritmi in grado di proporre contenuti \textit{ad hoc} all'utente, e da un grande aumento della cura riposta nella \gls{ux} delle applicazioni web, prestando attenzione a concetti quali \gls{respg} e \gls{usabg}, dato l'accresciuto utilizzo di dispositivi \textit{mobile}.
+  Tipici di questo stadio del Web sono le moderne web app citate nella \autoref{sec:Principi generali}. 
+  % Vizzari fun service
+  
+  % \item \textbf{Web 4.0} (loading...):
+\end{itemize}
+
+In definitiva, è possibile affermare che le web app siano nate, almeno concettualmente, negli anni del Web 1.0. Nonostante ciò, esse si sono evolute, e quelle di cui facciamo quotidianamente uso ai giorni nostri appartengono a ciò che viene identificato come Web 3.0.
+
+\section{Architettura}
+\label{subec:Architettura}
+Da un punto di vista architetturale, le applicazioni web appartengono alla famiglia dei sistemi distribuiti\footnote{I sistemi distribuiti rappresentano l'evoluzione dei sistemi centralizzati poiché sono caratterizzati da resilienza, scalabilità, eterogeneità, disponibilità e condivisione delle risorse.}, dei sistemi informatici la cui più rilevante proprietà è la delocalizzazione del carico computazionale. I sistemi distribuiti sono caratterizzati dalla presenza di molteplici processi interconnessi fra loro, che sono eseguiti in parallelo su nodi di calcolo diversi, e condividono un obiettivo comune. 
+% client server
+
+Parlare dell'architettura delle web app significa parlare dell'architettura \textit{three-tier}, una filosofia di progettazione classica nell'ambito dell'ingeneria del \textit{software}, e prendere in considerazione anche le architetture che hanno portato alla definizione di diverse tipologie applicazioni web.
+
+\subsection{Livelli}
+Nonostante le web app possano essere molto differenti fra loro in termini di architettura \textit{software} impiegata, la maggior parte di esse sono riconducibili a un'architettura a tre livelli, o strati (in inglese \textit{three-tier}). Essa rappresenta un particolare tipo di architettura a più livelli (in inglese \textit{multi-tier} o \textit{n-tier}) considerata l'evoluzione della tradizionale architettura a due livelli (in inglese \textit{two-tier}) di tipo client-server.
+% mapping sugli hardware
+
+L'architettura \textit{three-tier} si avvale di una segmentazione dell'applicativo in moduli che vanno a rispecchiare le sue funzioni. Ognuno dei tre livelli comunica con quello più prossimo riproducendo il paradigma client-server, e quelli di cui si compone sono:
+\begin{itemize}
+  \item \textbf{\textit{Presentation tier}:} il primo livello, il più alto, è responsabile del \textit{rendering}, letteralmente della “presentazione”, a schermo dell'interfaccia utente dell'applicativo, in inglese \gls{ui}. Ciò avviene grazie al browser web, il \textit{software} che permette la fruizione di contenuti e servizi da parte dell'utente attraverso l'invio di richieste, e l'interpretazione dei risultati restituiti dal server web. In definitiva, il livello di presentazione si rapporta con dinamiche lato client (in inglese \textit{client-side}), anche identificate come \textit{front-end} poiché immediatamente visibili. Alcuni dei più importanti linguaggi utilizzati per la creazione di interfacce utente sono, ad esempio, \gls{html}, \gls{css}, JavaScript, e più recenti  \textit{framework} basati su JavaScript, come, ad esempio, \textit{React}, \textit{Angular} e \textit{Vue};
+  % è molto bello e remunerativo, infatti guadagnerò tanti soldini, che spenderò con la mia fidanzatina Emma Franchino, in una località marittima!
+  
+  \item \textbf{\textit{Business tier}:} il secondo livello, l'intermedio, è responsabile dell'effettivo funzionamento dell'applicativo, e dunque della logica applicativa\footnote{Il \textit{Business tier} è il livello assente nell'architettura \textit{two-tier}.} (anche detta “logica di \textit{business}”) deputata all'elaborazione delle richieste effettuate dall'utente lato client. Essa risiede in un \textit{middleware}, ed è identificata come \textit{back-end} poiché non immediatamente visibile all'utente. Alcuni dei più importanti linguaggi impiegati per la gestione della logica di funzionamento dell'applicativo sono, ad esempio, Python, PHP e Java;
+  
+  \item \textbf{\textit{Data tier}:} il terzo livello, il più basso, è responsabile dell'immagazzinamento, della manipolazione e dell'interrogazione dei dati presenti sul \gls{db} grazie alla gestione delle richieste provenienti dalla logica applicativa. Il livello dei dati può risiedere anch'esso sul \textit{middleware}, oppure sul server.
+\end{itemize}
+% spazio
+Un sistema che implementa una simile strutturazione permette agli sviluppatori di maneggiare il \textit{software} accedendo solamente a sezioni specifiche dell'applicativo.
+
+\subsection{Tipologie}
+\label{subsec:Tipologie}
+Le applicazioni web presenti sul mercato possono essere suddivise in:
+\begin{itemize}
+  \item \textbf{\acrfull{mpa}}: il loro funzionamento è basato su molteplici pagine, ognuna delle quali viene reperita \textit{ex novo} in seguito a una richiesta effettuata al server ogni volta che l'utente effettua un click su un link. Una \acrshort{mpa} è formata da pagine \gls{html}, la cui interattività dipende dall'esecuzione di codice JavaScript. Poiché, prima di essere restituita al browser e visualizzata, ogni pagina deve essere caricata e renderizzata all'interno del server, si parla di \acrfull{ssr}.\\
+  Le \acrshort{mpa} rappresentano il paradigma di applicazione web più tradizionale; esse altro non sono che i siti web classici, come i siti di e-commerce, i portali di notizie e i siti di informazioni; 
+
+  \item \textbf{\acrfull{spa}}: il loro funzionamento avviene in una singola pagina, la quale viene reperita nella sua interezza attraverso un'unica richiesta \gls{http} iniziale e aggiornata dinamicamente attraverso le molteplici richieste effettuate al server all'interagire dell'utente con determinate porzioni della web app. Al posto di richiedere una nuova pagina ogni volta che è necessario visualizzate nuovi dati, le \acrshort{spa} mantengono tutte le porzioni della web app non destinate a cambiare (che sono state ottenute grazie alla prima chiamata, la principale) ed effettuano richieste specifiche per popolare solo le aree che devono essere aggiornate.\\
+  Le \acrshort{spa} sono molto apprezzate sia da coloro che le utilizzano, che da coloro che le sviluppano. Da un lato l'esperienza utente offerta è più fluida, reattiva e interattiva: restituendo solo i contenuti richiesti di volta in volta, evitando di ricaricare pagine pregne di contenuti superflui e facendo ampio uso di codice JavaScript per la gestione di una complessa interattività, le \acrshort{spa} offrono delle prestazioni e una dinamicità nettamente superiori a quelle delle \acrshort{mpa}, avvicinandosi alle applicazioni native e desktop. Dall'altro, il lavoro dello sviluppatore è più rapido: utilizzando in più situazioni diverse gli stessi componenti, in una \acrshort{spa} il codice può essere riutilizzato, sono meno gli elementi da testare, la \gls{respg} è più facile da gestire, e lo scambio di dati/informazioni può essere monitorato con meno sforzo.\\
+  I difetti principali di questo tipo di applicazione web sono il tempo di caricamento iniziale, potenzialmente lungo a causa dell'ingente mole di dati che devono essere reperiti dalla prima richiesta, e la difficile gestione della \gls{seo}.\\
+  Questo tipo di applicazioni web vengono sviluppate grazie a \textit{framework} JavaScript come \textit{React}, \textit{Angular} e \textit{Vue};
+
+  \item \textbf{\acrfull{pwa}}: il loro funzionamento imita quello delle applicazioni native e desktop. Infatti, pur rimanendo eseguibili anche solamente sul browser, le \acrshort{pwa} possono essere installate rapidamente tramite un pulsante posto nel browser, senza il bisogno di uno \textit{store}.\\
+  Grazie a una migliore integrazione con l'\textit{hardware} e il \textit{software} del dispositivo in uso, questo tipo di applicazioni web è dotato di un ottimo livello di interattività. Fra le funzioni più interessanti delle \acrshort{pwa} vi sono l'accesso a periferiche come il \acrshort{gps} e la fotocamera, la possibilità di utilizzare funzioni native come la scansione di codici \acrshort{qr}, le notifiche \textit{push}, e la possibilità di utilizzo offline;
+
+  \item \textbf{\acrfull{iwa}}: la loro esecuzione può avvenire sia lato client che lato server. In altre parole, le stesse funzionalità e la stessa logica possono essere eseguite da ambi i lati a seconda delle esigenze.\\
+  Poiché le richieste possono essere gestite sia sul server che sul client, l'innata duttilità delle \acrshort{iwa} si traduce in una minore latenza e in una maggiore scalabilità. Ciò permette di offrire un'esperienza utente più fluida e coerente, poiché la logica e le funzionalità sono condivise tra il server e il client.
+
+  % \item \textbf{\textit{Pre-Rendered Application}:}
+  
+  % \item \textbf{\acrfull{soa}:}
+  
+  % \item \textbf{\textit{Microservices}:}
+  
+  % \item \textbf{\textit{Serverless}:}
+\end{itemize}
+
+Se le \acrshort{mpa} e le \acrshort{spa} rappresentano dei paradigmi piuttosto affermati nell'ambito dello sviluppo web, le \acrshort{pwa} e le \acrshort{iwa} costituiscono delle soluzioni che hanno ancora un grande margine di crescita e diffusione. 
+
+% \subsection{\textit{Cloud}}
+% \begin{itemize}
+%   \item \textbf{I-a-a-s:}
+% \end{itemize}
